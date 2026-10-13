@@ -1,7 +1,7 @@
 # Tarefa 3 — Escopo da primeira entrega e conta/autenticação
 
-Responsável: _(a definir pela equipe)_
-Depende de: Tarefa 1 (problema e público), Tarefa 2 (modalidade e origem dos livros)
+Responsável: Antonio Carlos Gomes
+Depende de: Tarefa 1 (problema e público) — Micael Cardoso Reis; Tarefa 2 (modalidade e origem dos livros) — Maria Clara Almeida Martins
 Bloqueia: abertura da próxima especificação em `specs/`
 
 ## Contexto
@@ -25,9 +25,9 @@ privacidade e recuperação de dados.
 
 ## Entregável
 
-Atualização da tabela de decisões pendentes em `docs/produto.md`, lista priorizada do escopo do
-MVP na seção "Escopo e situação", e — se envolver autenticação/persistência — um ADR em
-`docs/adr/` registrando a decisão.
+Atualização da tabela de decisões pendentes em [docs/produto.md](../../docs/produto.md), lista
+priorizada do escopo do MVP na seção "Escopo e situação", e — se envolver
+autenticação/persistência — um ADR em `docs/adr/` registrando a decisão.
 
 ---
 

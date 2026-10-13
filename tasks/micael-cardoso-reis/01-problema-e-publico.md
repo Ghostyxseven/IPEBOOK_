@@ -1,12 +1,12 @@
 # Tarefa 1 — Problema e público-alvo
 
-Responsável: _(a definir pela equipe)_
+Responsável: Micael Cardoso Reis
 Depende de: —
 Bloqueia: Tarefa 2, Tarefa 3
 
 ## Contexto
 
-O [docs/produto.md](../docs/produto.md) confirma que, até agora, só a base técnica do Ipebook
+O [docs/produto.md](../../docs/produto.md) confirma que, até agora, só a base técnica do Ipebook
 foi validada — não há definição do problema real do usuário final, do público prioritário nem
 da proposta de valor. A frase de interface "Um lugar para descobrir sua próxima leitura" é uma
 pista, não uma decisão.
@@ -27,9 +27,9 @@ pista, não uma decisão.
 
 ## Entregável
 
-Atualização da tabela "Decisões de produto pendentes" em `docs/produto.md` com a linha
-correspondente respondida, e um parágrafo curto no próprio `produto.md` (seção "Público e
-problema") substituindo a afirmação de que isso "ainda precisa ser definido".
+Atualização da tabela "Decisões de produto pendentes" em [docs/produto.md](../../docs/produto.md)
+com a linha correspondente respondida, e um parágrafo curto no próprio `produto.md` (seção
+"Público e problema") substituindo a afirmação de que isso "ainda precisa ser definido".
 
 ---
 

@@ -1,6 +1,6 @@
 # Tarefa 4 — Plataformas suportadas inicialmente
 
-Responsável: _(a definir pela equipe)_
+Responsável: Eric Vinícius dos Santos Oliveira
 Depende de: — (pode ser feita em paralelo às demais)
 Bloqueia: validação e distribuição da primeira entrega
 
@@ -23,8 +23,9 @@ como será distribuído.
 
 ## Entregável
 
-Atualização da tabela de decisões pendentes em `docs/produto.md` com a plataforma-alvo definida
-e a justificativa (ex.: disponibilidade de dispositivos da equipe, exigência da disciplina).
+Atualização da tabela de decisões pendentes em [docs/produto.md](../../docs/produto.md) com a
+plataforma-alvo definida e a justificativa (ex.: disponibilidade de dispositivos da equipe,
+exigência da disciplina).
 
 ---
 
