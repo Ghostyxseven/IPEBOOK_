@@ -2,6 +2,21 @@
 
 Base independente em Expo, React Native e TypeScript, com arquitetura MVVM sofisticada em sete camadas e suíte completa de testes automatizados baseada na norma **ISO/IEC 25010**.
 
+Projeto avaliativo do curso de Tecnologia em Análise e Desenvolvimento de Sistemas do IFPI — Campus Piripiri, integrando três disciplinas:
+
+* **Engenharia de Software III** — arquitetura, estratégia de testes e qualidade (ISO/IEC 25010).
+* **Programação para Dispositivos Móveis (PDM)** — implementação do app em Expo/React Native.
+* **Interação Humano-Computador (IHC)** — design system formal, acessibilidade (WCAG 2.1/2.2 AA) e usabilidade.
+
+---
+
+## 📄 Produto e documentação
+
+* Objetivo, público, modalidade e decisões de produto em [`docs/produto.md`](docs/produto.md).
+* Estado atual e próximos passos em [`docs/estado.md`](docs/estado.md).
+* Design system (IHC): paleta, tipografia, espaçamento e acessibilidade em [`docs/design-system.md`](docs/design-system.md).
+* Divisão de tarefas da equipe (decisões pendentes e trabalho técnico) em [`tasks/README.md`](tasks/README.md).
+
 ---
 
 ## 🚀 Como Começar
@@ -13,11 +28,13 @@ npm ci
 npm run web
 ```
 
-Para executar em plataformas nativas:
+Para executar em dispositivo nativo:
 ```bash
 npm run android  # Dispositivo/Emulador Android
-npm run ios      # Dispositivo/Simulador iOS (macOS)
+npm run ios      # Dispositivo/Simulador iOS (macOS) — disponível, mas fora do escopo de validação
 ```
+
+> Plataformas suportadas na primeira entrega: **Android e Web** (decisão registrada em [`docs/produto.md`](docs/produto.md)). iOS fica fora do escopo por enquanto; o comando continua disponível para quem tiver ambiente macOS, mas não é alvo de validação desta entrega.
 
 ---
 
@@ -105,17 +122,20 @@ maestro test .maestro/
 ## 🏛️ Arquitetura e Decisões
 
 * Arquitetura em 7 camadas documentada em [`docs/arquitetura.md`](docs/arquitetura.md).
-* Decisões arquiteturais registradas em ADRs:
+* Decisões arquiteturais registradas em ADRs (índice completo em [`docs/adr/README.md`](docs/adr/README.md)):
   - [ADR 0001 — Adotar ADRs](docs/adr/0001-adotar-adrs.md)
   - [ADR 0002 — Adotar Expo e MVVM sofisticado](docs/adr/0002-adotar-expo-mvvm.md)
   - [ADR 0003 — Estratégia de testes com RNTL, Vitest Coverage e Maestro sob a ISO/IEC 25010](docs/adr/0003-estrategia-testes-iso25010.md)
+  - [ADR 0004 — Design System, tokens contratuais e diretrizes de IHC](docs/adr/0004-design-system-e-tokens-ihc.md)
+  - [ADR 0005 — Modalidade do produto: venda, troca e doação de livros físicos](docs/adr/0005-modalidade-venda-troca-doacao.md)
+  - [ADR 0006 — Haverá conta: e-mail/senha e login com Google](docs/adr/0006-conta-com-email-e-google.md)
 
 ---
 
 ## 👥 Equipe do Projeto (IFPI Piripiri - TADS)
 
 * **Instituição:** Instituto Federal do Piauí — Campus Piripiri
-* **Disciplina:** Engenharia de Software III (Prof. Jeferson Soares)
+* **Disciplinas:** Engenharia de Software III, Programação para Dispositivos Móveis (PDM) e Interação Humano-Computador (IHC) (Prof. Jeferson Soares)
 * **Integrantes:**
   1. **Micael Cardoso Reis** ([@Ghostyxseven](https://github.com/Ghostyxseven))
   2. **Maria Clara Almeida Martins** ([@clarinhamartins](https://github.com/clarinhamartins))
