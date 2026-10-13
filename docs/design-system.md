@@ -78,7 +78,7 @@ A tipografia do IpêBook equilibra o conforto ergonômico da leitura em disposit
 
 ### 3.1 Famílias Tipográficas
 - **Interface e Controles (UI):** **Roboto** (Google Fonts / Sistema Nativo). Sans-serif versátil, neutra e com legibilidade otimizada para renderização em densidades variadas de pixels.
-- **Identidade e Títulos de Destaque (Brand):** **Source Serif 4 Bold** (conforme [ADR 0019](adr/0019-serifa-da-marca-e-superficies-do-figma.md)). Serifa humanista inspirada na tradição tipográfica de livros impressos, aplicada no logotipo e no cabeçalho inicial.
+- **Identidade e Títulos de Destaque (Brand):** **Source Serif 4 Bold** (conforme [ADR 0007](adr/0007-serifa-da-marca.md)). Serifa humanista inspirada na tradição tipográfica de livros impressos, aplicada no logotipo e no cabeçalho inicial.
 
 ### 3.2 Escala Tipográfica Formal
 

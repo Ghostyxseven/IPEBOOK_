@@ -41,10 +41,16 @@ em `docs/adr/`, com índice atualizado.
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Causa encontrada:
-- Ação tomada:
-- ADR criado/corrigido (link):
-- Pendências:
+- Data: 2026-10-13
+- Causa encontrada: `docs/design-system.md` foi escrito com base no projeto irmão
+  (`/home/usermicael/Projetos/IpeBook`), que tem um ADR 0019 real — mas o link foi copiado sem
+  que o ADR correspondente existisse neste repositório, que segue numeração própria (parada em
+  0006).
+- Ação tomada: criado ADR local com o recorte específico que se aplica aqui (só a decisão da
+  serifa da marca); o ADR 0019 do projeto irmão decide um escopo bem mais amplo que não existe
+  neste projeto (superfícies Figma, capa ilustrativa, navegação de 5 destinos) e não devia ser
+  replicado aqui.
+- ADR criado/corrigido (link): [docs/adr/0007-serifa-da-marca.md](../../docs/adr/0007-serifa-da-marca.md);
+  link em `docs/design-system.md` corrigido para apontar para ele.
+- Pendências: nenhuma. Não há outras referências a ADRs inexistentes neste repositório (único
+  achado dessa natureza na análise).
