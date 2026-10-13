@@ -116,8 +116,12 @@ maestro test .maestro/
 
 * **Instituição:** Instituto Federal do Piauí — Campus Piripiri
 * **Disciplina:** Engenharia de Software III (Prof. Jeferson Soares)
-* **Integrante:** **Micael Cardoso Reis** ([@Ghostyxseven](https://github.com/Ghostyxseven))
-* Informações completas e matriz de papéis em [`docs/equipe.md`](docs/equipe.md).
+* **Integrantes:**
+  1. **Micael Cardoso Reis** ([@Ghostyxseven](https://github.com/Ghostyxseven)) — Catálogo, Mapa, Favoritos, Arquitetura MVVM e Testes Automatizados.
+  2. **Maria Clara Almeida Martins** ([@clarinhamartins](https://github.com/clarinhamartins)) — Autenticação, Onboarding e Telas de Acesso.
+  3. **Antonio Carlos Gomes** ([@gomes738](https://github.com/gomes738)) — Negociação e Diretrizes de Segurança.
+  4. **Eric Vinícius dos Santos Oliveira** ([@Eric2025gh](https://github.com/Eric2025gh)) — Anúncios (Cadastro, Fotos, ISBN) e Perfil.
+* Detalhes, e-mails de commit e matriz completa em [`docs/equipe.md`](docs/equipe.md).
 
 ---
 
