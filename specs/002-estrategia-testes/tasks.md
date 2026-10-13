@@ -1,6 +1,6 @@
 # Tarefas: Estratégia de Testes
 
-- [ ] T001 Instalar `@testing-library/react-native` e `@vitest/coverage-v8`, configurar cobertura e scripts no `package.json`.
+- [x] T001 Instalar `@testing-library/react-native` e `@vitest/coverage-v8`, configurar cobertura e scripts no `package.json`.
 - [ ] T002 Implementar regras puras de validação de livro em `src/model/validators/bookValidator.ts` e testes unitários em `tests/unit/`.
 - [ ] T003 Implementar testes de hooks com `renderHook` em `tests/hooks/useHomeViewModel.test.tsx`.
 - [ ] T004 Implementar testes de componentes com RNTL em `tests/components/homeView.test.tsx`.
