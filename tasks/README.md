@@ -17,6 +17,14 @@ Esta pasta organiza o trabalho pendente da equipe em **dois repositórios**:
 Cada integrante tem sua própria subpasta, nomeada conforme [docs/equipe.md](../docs/equipe.md),
 com as tarefas de ambos os projetos juntas.
 
+Todas as tarefas ainda em aberto (5, 6, 8 e 9 a 22, mais o checklist compartilhado) também têm
+uma issue correspondente no GitHub (repositório `Ghostyxseven/IPEBOOK_`, já que o remoto do
+projeto grande está quebrado — ver achado crítico em
+[00b-achados-projeto-ipebook-grande.md](00b-achados-projeto-ipebook-grande.md)), com labels por
+integrante (`pessoa:micael`, `pessoa:maria-clara`, `pessoa:antonio`, `pessoa:eric`) e por origem
+(`projeto-grande`). As tarefas 1, 2, 3, 4 e 7 não têm issue — já estão decididas, não precisam
+de acompanhamento de execução.
+
 **Atualização de 2026-10-13:** as tarefas 1, 2, 3, 4 e 7 (decisões de produto do `IPEBOOK_`) já
 têm decisão registrada em "Registro de execução", trazida do que a equipe já validou no projeto
 irmão (`/home/usermicael/Projetos/IpeBook`) — ver `docs/produto.md`, seção "Decisões já
@@ -83,20 +91,20 @@ Tarefas 15, 18, 22 (web responsiva, cada um sua parte) — podem ser feitas em p
 
 | Integrante | Pasta | Tarefas | Depende de |
 | --- | --- | --- | --- |
-| Micael Cardoso Reis | [micael-cardoso-reis/](micael-cardoso-reis/) | [01 — Problema e público-alvo](micael-cardoso-reis/01-problema-e-publico.md) · [06 — Resolver referência ADR 0019](micael-cardoso-reis/06-resolver-referencia-adr-0019.md) | — |
+| Micael Cardoso Reis | [micael-cardoso-reis/](micael-cardoso-reis/) | [01 — Problema e público-alvo](micael-cardoso-reis/01-problema-e-publico.md) · [06 — Resolver referência ADR 0019](micael-cardoso-reis/06-resolver-referencia-adr-0019.md) ([#2](https://github.com/Ghostyxseven/IPEBOOK_/issues/2)) | — |
 | Maria Clara Almeida Martins | [maria-clara-almeida-martins/](maria-clara-almeida-martins/) | [02 — Modalidade e origem dos livros](maria-clara-almeida-martins/02-modalidade-e-origem-dos-livros.md) · [07 — Reconciliar documentação de modalidade](maria-clara-almeida-martins/07-reconciliar-documentacao-de-modalidade.md) | Tarefa 1 |
-| Antonio Carlos Gomes | [antonio-carlos-gomes/](antonio-carlos-gomes/) | [03 — Escopo do MVP e conta/autenticação](antonio-carlos-gomes/03-escopo-mvp-e-conta.md) · [08 — Especificar primeira jornada funcional](antonio-carlos-gomes/08-especificar-primeira-jornada-funcional.md) | Tarefas 1, 2, 7 |
-| Eric Vinícius dos Santos Oliveira | [eric-vinicius-dos-santos-oliveira/](eric-vinicius-dos-santos-oliveira/) | [04 — Plataformas suportadas inicialmente](eric-vinicius-dos-santos-oliveira/04-plataformas.md) · [05 — Integrar componentes visuais na Home](eric-vinicius-dos-santos-oliveira/05-integrar-componentes-visuais-na-home.md) | — |
+| Antonio Carlos Gomes | [antonio-carlos-gomes/](antonio-carlos-gomes/) | [03 — Escopo do MVP e conta/autenticação](antonio-carlos-gomes/03-escopo-mvp-e-conta.md) · [08 — Especificar primeira jornada funcional](antonio-carlos-gomes/08-especificar-primeira-jornada-funcional.md) ([#3](https://github.com/Ghostyxseven/IPEBOOK_/issues/3)) | Tarefas 1, 2, 7 |
+| Eric Vinícius dos Santos Oliveira | [eric-vinicius-dos-santos-oliveira/](eric-vinicius-dos-santos-oliveira/) | [04 — Plataformas suportadas inicialmente](eric-vinicius-dos-santos-oliveira/04-plataformas.md) · [05 — Integrar componentes visuais na Home](eric-vinicius-dos-santos-oliveira/05-integrar-componentes-visuais-na-home.md) ([#1](https://github.com/Ghostyxseven/IPEBOOK_/issues/1)) | — |
 
 ### No projeto grande (`/home/usermicael/Projetos/IpeBook`)
 
 | Integrante | Tarefas | Área |
 | --- | --- | --- |
-| Micael Cardoso Reis | [09 — Corrigir bugs da auditoria](micael-cardoso-reis/09-corrigir-bugs-auditoria-negociacao-notificacoes.md) · [10 — Finalizar catálogo e validar em aparelho](micael-cardoso-reis/10-finalizar-catalogo-e-validar-aparelho-real.md) · [11 — Acordar ADR 0011](micael-cardoso-reis/11-acordar-adr-0011-notificacoes.md) · [12 — Infra (remoto, build, Vercel, README)](micael-cardoso-reis/12-infra-remoto-build-vercel-readme.md) | Catálogo, Negociação, Notificações, Infra |
-| Maria Clara Almeida Martins | [13 — Fechar Google/iOS na autenticação](maria-clara-almeida-martins/13-fechar-pendencias-google-ios-autenticacao.md) · [14 — Validar autenticação em aparelho](maria-clara-almeida-martins/14-validar-autenticacao-onboarding-aparelho-real.md) · [15 — Web responsiva: sua parte](maria-clara-almeida-martins/15-web-responsiva-sua-parte.md) | Autenticação/Onboarding |
-| Antonio Carlos Gomes | [16 — Corrigir acesso ao menu de moderação](antonio-carlos-gomes/16-corrigir-acesso-menu-moderacao.md) · [17 — Validar segurança em aparelho](antonio-carlos-gomes/17-validar-seguranca-aparelho-real.md) · [18 — Web responsiva: sua parte](antonio-carlos-gomes/18-web-responsiva-sua-parte.md) | Segurança/Moderação |
-| Eric Vinícius dos Santos Oliveira | [19 — Corrigir métrica de reputação](eric-vinicius-dos-santos-oliveira/19-corrigir-metrica-reputacao.md) · [20 — Completar spec 031 (perfil completo)](eric-vinicius-dos-santos-oliveira/20-completar-perfil-completo-spec-031.md) · [21 — Validar anúncio/perfil em aparelho](eric-vinicius-dos-santos-oliveira/21-validar-anuncio-perfil-aparelho-real.md) · [22 — Web responsiva: sua parte](eric-vinicius-dos-santos-oliveira/22-web-responsiva-sua-parte.md) | Anúncios, Perfil |
+| Micael Cardoso Reis | [09 ([#4](https://github.com/Ghostyxseven/IPEBOOK_/issues/4)) — Corrigir bugs da auditoria](micael-cardoso-reis/09-corrigir-bugs-auditoria-negociacao-notificacoes.md) · [10 ([#5](https://github.com/Ghostyxseven/IPEBOOK_/issues/5)) — Finalizar catálogo e validar em aparelho](micael-cardoso-reis/10-finalizar-catalogo-e-validar-aparelho-real.md) · [11 ([#6](https://github.com/Ghostyxseven/IPEBOOK_/issues/6)) — Acordar ADR 0011](micael-cardoso-reis/11-acordar-adr-0011-notificacoes.md) · [12 ([#7](https://github.com/Ghostyxseven/IPEBOOK_/issues/7)) — Infra (remoto, build, Vercel, README)](micael-cardoso-reis/12-infra-remoto-build-vercel-readme.md) | Catálogo, Negociação, Notificações, Infra |
+| Maria Clara Almeida Martins | [13 ([#8](https://github.com/Ghostyxseven/IPEBOOK_/issues/8)) — Fechar Google/iOS na autenticação](maria-clara-almeida-martins/13-fechar-pendencias-google-ios-autenticacao.md) · [14 ([#9](https://github.com/Ghostyxseven/IPEBOOK_/issues/9)) — Validar autenticação em aparelho](maria-clara-almeida-martins/14-validar-autenticacao-onboarding-aparelho-real.md) · [15 ([#10](https://github.com/Ghostyxseven/IPEBOOK_/issues/10)) — Web responsiva: sua parte](maria-clara-almeida-martins/15-web-responsiva-sua-parte.md) | Autenticação/Onboarding |
+| Antonio Carlos Gomes | [16 ([#11](https://github.com/Ghostyxseven/IPEBOOK_/issues/11)) — Corrigir acesso ao menu de moderação](antonio-carlos-gomes/16-corrigir-acesso-menu-moderacao.md) · [17 ([#12](https://github.com/Ghostyxseven/IPEBOOK_/issues/12)) — Validar segurança em aparelho](antonio-carlos-gomes/17-validar-seguranca-aparelho-real.md) · [18 ([#13](https://github.com/Ghostyxseven/IPEBOOK_/issues/13)) — Web responsiva: sua parte](antonio-carlos-gomes/18-web-responsiva-sua-parte.md) | Segurança/Moderação |
+| Eric Vinícius dos Santos Oliveira | [19 ([#14](https://github.com/Ghostyxseven/IPEBOOK_/issues/14)) — Corrigir métrica de reputação](eric-vinicius-dos-santos-oliveira/19-corrigir-metrica-reputacao.md) · [20 ([#15](https://github.com/Ghostyxseven/IPEBOOK_/issues/15)) — Completar spec 031 (perfil completo)](eric-vinicius-dos-santos-oliveira/20-completar-perfil-completo-spec-031.md) · [21 ([#16](https://github.com/Ghostyxseven/IPEBOOK_/issues/16)) — Validar anúncio/perfil em aparelho](eric-vinicius-dos-santos-oliveira/21-validar-anuncio-perfil-aparelho-real.md) · [22 ([#17](https://github.com/Ghostyxseven/IPEBOOK_/issues/17)) — Web responsiva: sua parte](eric-vinicius-dos-santos-oliveira/22-web-responsiva-sua-parte.md) | Anúncios, Perfil |
 
 ## Compartilhado
 
-- [00c-checklist-apresentacao-final-projeto-grande.md](00c-checklist-apresentacao-final-projeto-grande.md)
+- [00c-checklist-apresentacao-final-projeto-grande.md](00c-checklist-apresentacao-final-projeto-grande.md) ([#18](https://github.com/Ghostyxseven/IPEBOOK_/issues/18))
