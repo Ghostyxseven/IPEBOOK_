@@ -1,0 +1,16 @@
+#!/bin/sh
+# Bloqueio de commits diretos na main / master
+
+branch="$(git symbolic-ref --short -q HEAD)"
+
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo ""
+  echo "❌ ERRO: Commits diretos na branch '$branch' estão BLOQUEADOS!"
+  echo "👉 A branch '$branch' é reservada apenas para versões finais aprovadas."
+  echo "👉 Mude para a branch 'develop' (ou crie uma feature branch) para continuar:"
+  echo "   git checkout develop"
+  echo ""
+  exit 1
+fi
+
+exit 0

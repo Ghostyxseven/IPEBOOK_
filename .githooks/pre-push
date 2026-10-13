@@ -1,0 +1,15 @@
+#!/bin/sh
+# Bloqueio de pushes diretos para a main / master
+
+while read local_ref local_oid remote_ref remote_oid
+do
+  if [ "$remote_ref" = "refs/heads/main" ] || [ "$remote_ref" = "refs/heads/master" ]; then
+    echo ""
+    echo "❌ ERRO: Push direto para a branch 'main' está BLOQUEADO!"
+    echo "👉 As alterações devem ser enviadas para 'develop' e integradas na 'main' somente via Pull Request aprovado."
+    echo ""
+    exit 1
+  fi
+done
+
+exit 0
