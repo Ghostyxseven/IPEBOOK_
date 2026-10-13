@@ -116,9 +116,9 @@ Tarefas 15, 18, 22 (web responsiva, cada um sua parte) — podem ser feitas em p
 
 | Integrante | Tarefa | Spec |
 | --- | --- | --- |
-| Maria Clara Almeida Martins | [23 — Implementar autenticação](maria-clara-almeida-martins/23-implementar-autenticacao-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
-| Eric Vinícius dos Santos Oliveira | [24 — Implementar cadastro de anúncio](eric-vinicius-dos-santos-oliveira/24-implementar-cadastro-anuncio-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
-| Antonio Carlos Gomes | [25 — Implementar negociação simples](antonio-carlos-gomes/25-implementar-negociacao-spec-004.md) | [specs/004](../specs/004-negociacao-simples/) |
+| Maria Clara Almeida Martins | [23 ([#19](https://github.com/Ghostyxseven/IPEBOOK_/issues/19)) — Implementar autenticação](maria-clara-almeida-martins/23-implementar-autenticacao-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Eric Vinícius dos Santos Oliveira | [24 ([#20](https://github.com/Ghostyxseven/IPEBOOK_/issues/20)) — Implementar cadastro de anúncio](eric-vinicius-dos-santos-oliveira/24-implementar-cadastro-anuncio-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Antonio Carlos Gomes | [25 ([#21](https://github.com/Ghostyxseven/IPEBOOK_/issues/21)) — Implementar negociação simples](antonio-carlos-gomes/25-implementar-negociacao-spec-004.md) | [specs/004](../specs/004-negociacao-simples/) |
 
 ### No projeto grande (`/home/usermicael/Projetos/IpeBook`)
 
