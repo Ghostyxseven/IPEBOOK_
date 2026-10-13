@@ -15,8 +15,9 @@ const Pressable = React.forwardRef((props, ref) =>
     "Pressable",
     {
       ...props,
-      ref,
+      accessible: props.accessible !== undefined ? props.accessible : true,
       accessibilityRole: props.accessibilityRole || "button",
+      ref,
     },
     typeof props.children === "function" ? props.children({ pressed: false }) : props.children
   )
@@ -27,6 +28,25 @@ const ActivityIndicator = React.forwardRef((props, ref) =>
   React.createElement("ActivityIndicator", { ...props, ref })
 );
 ActivityIndicator.displayName = "ActivityIndicator";
+
+const FlatList = React.forwardRef((props, ref) => {
+  const data = props.data || [];
+  if (data.length === 0 && props.ListEmptyComponent) {
+    const empty = typeof props.ListEmptyComponent === "function"
+      ? React.createElement(props.ListEmptyComponent)
+      : props.ListEmptyComponent;
+    return React.createElement(View, { ref }, empty);
+  }
+  return React.createElement(
+    View,
+    { ref },
+    data.map((item, index) => {
+      const key = props.keyExtractor ? props.keyExtractor(item, index) : index;
+      return React.createElement(React.Fragment, { key }, props.renderItem({ item, index }));
+    })
+  );
+});
+FlatList.displayName = "FlatList";
 
 const StyleSheet = {
   create: (styles) => styles,
@@ -39,6 +59,11 @@ const StyleSheet = {
   },
 };
 
+const AccessibilityInfo = {
+  isScreenReaderEnabled: () => Promise.resolve(false),
+  addEventListener: () => ({ remove: () => {} }),
+};
+
 const Platform = {
   OS: "ios",
   select: (obj) => obj.ios || obj.default,
@@ -49,14 +74,18 @@ module.exports = {
   Text,
   Pressable,
   ActivityIndicator,
+  FlatList,
   StyleSheet,
+  AccessibilityInfo,
   Platform,
   default: {
     View,
     Text,
     Pressable,
     ActivityIndicator,
+    FlatList,
     StyleSheet,
+    AccessibilityInfo,
     Platform,
   },
 };
