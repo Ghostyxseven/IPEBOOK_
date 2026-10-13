@@ -109,3 +109,19 @@ maestro test .maestro/
   - [ADR 0001 — Adotar ADRs](docs/adr/0001-adotar-adrs.md)
   - [ADR 0002 — Adotar Expo e MVVM sofisticado](docs/adr/0002-adotar-expo-mvvm.md)
   - [ADR 0003 — Estratégia de testes com RNTL, Vitest Coverage e Maestro sob a ISO/IEC 25010](docs/adr/0003-estrategia-testes-iso25010.md)
+
+---
+
+## 👥 Equipe do Projeto (IFPI Piripiri - TADS)
+
+* **Instituição:** Instituto Federal do Piauí — Campus Piripiri
+* **Disciplina:** Engenharia de Software III (Prof. Jeferson Soares)
+* **Integrante:** **Micael Cardoso Reis** ([@Ghostyxseven](https://github.com/Ghostyxseven))
+* Informações completas e matriz de papéis em [`docs/equipe.md`](docs/equipe.md).
+
+---
+
+## 🤝 Como Contribuir
+
+Consulte as diretrizes completas de colaboração, política de branches, fluxo de Git e convenção de commits em [**CONTRIBUTING.md**](CONTRIBUTING.md).
+
