@@ -1,6 +1,7 @@
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useHomeViewModel } from "@/viewmodel/useHomeViewModel";
+import { tokens } from "@/view/tokens";
 
 export default function Home() {
   const [state, actions] = useHomeViewModel();
@@ -16,7 +17,7 @@ export default function Home() {
         <Text accessibilityRole="header" style={styles.heading}>Livros</Text>
         {state.loading ? (
           <View style={styles.status}>
-            <ActivityIndicator color="#243D31" accessibilityLabel="Carregando livros" />
+            <ActivityIndicator color={tokens.colors.action} accessibilityLabel="Carregando livros" />
             <Text style={styles.body}>Carregando livros…</Text>
           </View>
         ) : state.error ? (
@@ -51,19 +52,19 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  page: { flex: 1, backgroundColor: "#FAF8F2" },
-  content: { flex: 1, width: "100%", maxWidth: 720, alignSelf: "center", padding: 24, paddingTop: 48 },
-  brand: { flexDirection: "row", alignItems: "center", gap: 12 },
-  mark: { width: 16, height: 36, backgroundColor: "#E9BE4A", borderTopRightRadius: 12 },
-  title: { fontSize: 36, fontWeight: "700", color: "#243D31" },
-  subtitle: { fontSize: 17, lineHeight: 26, color: "#58665D", marginTop: 14, marginBottom: 48 },
-  heading: { fontSize: 24, fontWeight: "600", color: "#243D31", marginBottom: 24 },
-  list: { paddingBottom: 24 },
-  empty: { borderTopWidth: 1, borderTopColor: "#D7DDD6", paddingTop: 28, gap: 10 },
-  emptyTitle: { fontSize: 19, fontWeight: "600", color: "#243D31" },
-  body: { fontSize: 16, lineHeight: 25, color: "#58665D" },
+  page: { flex: 1, backgroundColor: tokens.colors.background },
+  content: { flex: 1, width: "100%", maxWidth: 720, alignSelf: "center", padding: tokens.spacing[24], paddingTop: tokens.spacing[48] },
+  brand: { flexDirection: "row", alignItems: "center", gap: tokens.spacing[12] },
+  mark: { width: 16, height: 36, backgroundColor: tokens.colors.highlight, borderTopRightRadius: tokens.radius.medium },
+  title: { fontSize: tokens.typography.displayLarge.fontSize, fontWeight: tokens.typography.displayLarge.fontWeight, color: tokens.colors.action },
+  subtitle: { fontSize: 17, lineHeight: 26, color: tokens.colors.secondaryText, marginTop: 14, marginBottom: tokens.spacing[48] },
+  heading: { fontSize: tokens.typography.titleLarge.fontSize, fontWeight: tokens.typography.titleLarge.fontWeight, color: tokens.colors.action, marginBottom: tokens.spacing[24] },
+  list: { paddingBottom: tokens.spacing[24] },
+  empty: { borderTopWidth: 1, borderTopColor: tokens.colors.border, paddingTop: 28, gap: 10 },
+  emptyTitle: { fontSize: 19, fontWeight: "600", color: tokens.colors.action },
+  body: { fontSize: tokens.typography.bodyLarge.fontSize, lineHeight: 25, color: tokens.colors.secondaryText },
   status: { gap: 18, alignItems: "flex-start" },
-  button: { minHeight: 48, justifyContent: "center", paddingHorizontal: 20, borderRadius: 8, backgroundColor: "#243D31" },
-  buttonText: { color: "#FAF8F2", fontSize: 16, fontWeight: "600" },
-  book: { paddingVertical: 18, borderBottomWidth: 1, borderBottomColor: "#D7DDD6", gap: 6 },
+  button: { minHeight: tokens.accessibility.touchTarget, minWidth: tokens.accessibility.touchTarget, justifyContent: "center", paddingHorizontal: tokens.spacing[20], borderRadius: tokens.radius.small, backgroundColor: tokens.colors.action },
+  buttonText: { color: tokens.colors.surface, fontSize: 16, fontWeight: "600" },
+  book: { paddingVertical: 18, borderBottomWidth: 1, borderBottomColor: tokens.colors.border, gap: 6 },
 });
