@@ -42,10 +42,30 @@ implementação pela equipe, e `docs/estado.md` atualizado marcando esta especif
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
+- Data: 2026-10-13
+- Jornada escolhida: autenticação (criar conta, entrar, sair) seguida de cadastro de anúncio de
+  livro (título, autor, modalidade venda/troca/doação, preço condicional), aparecendo na
+  listagem já existente.
+- Pasta de spec criada (link): [specs/003-autenticacao-e-cadastro-de-anuncio/](../../specs/003-autenticacao-e-cadastro-de-anuncio/)
+  (`spec.md`, `plan.md`, `tasks.md`)
+- Justificativa: segue exatamente a ordem já decidida na Tarefa 3 ("(1) autenticação de conta,
+  (2) cadastrar anúncio de livro, (3) catálogo/listagem já implementado, (4) negociação");
+  busca/filtros, negociação e segurança/moderação ficam fora, para especificações futuras.
+  Persistência continua em memória — nenhuma tecnologia de backend foi escolhida aqui.
+- Pendências: implementação (17 tarefas técnicas em `tasks.md`) ainda não começou; esta tarefa
+  cobre só a especificação.
 
-- Data:
-- Jornada escolhida:
-- Pasta de spec criada (link):
-- Justificativa:
-- Pendências:
+---
+
+## Especificação entregue
+
+[specs/003-autenticacao-e-cadastro-de-anuncio/spec.md](../../specs/003-autenticacao-e-cadastro-de-anuncio/spec.md)
+— 3 histórias (criar conta/entrar, cadastrar anúncio, sair), 7 requisitos funcionais, 3
+critérios de sucesso, casos de erro e suposições documentados.
+
+[specs/003-autenticacao-e-cadastro-de-anuncio/plan.md](../../specs/003-autenticacao-e-cadastro-de-anuncio/plan.md)
+— plano por camada (model → usecase → infra → di → viewmodel → view → app), com sequência de
+10 passos de implementação.
+
+[specs/003-autenticacao-e-cadastro-de-anuncio/tasks.md](../../specs/003-autenticacao-e-cadastro-de-anuncio/tasks.md)
+— 17 tarefas técnicas verificáveis, da camada de modelo até a validação final.
