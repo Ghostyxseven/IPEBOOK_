@@ -43,5 +43,5 @@ com a linha correspondente respondida, e um parágrafo curto no próprio `produt
   (`/home/usermicael/Projetos/IpeBook`, ver `README.md` de lá), que já valida esse problema e
   proposta de valor em specs e ADRs implementados. Não é pesquisa de usuário nova feita nesta
   base pequena.
-- Pendências: se a equipe quiser que este `IPEBOOK_` siga um problema/público diferente do
-  projeto irmão, revisar esta decisão e `docs/produto.md`.
+- Pendências: nenhuma — **confirmado diretamente pelo usuário solicitante em 2026-10-13** como
+  correto para este projeto (deixou de ser só inferência do projeto irmão).

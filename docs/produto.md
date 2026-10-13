@@ -87,10 +87,13 @@ forem especificadas.
 | Quais plataformas precisam ser suportadas inicialmente? | Android e Web. iOS fica fora da primeira entrega por enquanto (ver [tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md](../tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md)). | 2026-10-13 |
 
 Todas as decisões acima (exceto a de plataformas, que já tinha sido resolvida em conversa
-direta com o usuário) foram trazidas do trabalho já validado em produção da equipe no projeto
-irmão (`/home/usermicael/Projetos/IpeBook`), e não de pesquisa de usuário nova feita nesta base
-pequena. O responsável pelo produto é o usuário solicitante; se a equipe quiser divergir de
-alguma dessas decisões para este Ipebook específico, basta atualizar esta tabela.
+direta com o usuário) foram inicialmente trazidas do trabalho já validado em produção da equipe
+no projeto irmão (`/home/usermicael/Projetos/IpeBook`), não de pesquisa de usuário nova feita
+nesta base pequena. **Em 2026-10-13, o usuário solicitante confirmou diretamente as três
+principais (problema/público, modalidade, conta/autenticação) como corretas para este
+projeto** — deixaram de ser inferência e passaram a ser decisão confirmada. O responsável pelo
+produto é o usuário solicitante; se a equipe quiser divergir de alguma dessas decisões para
+este Ipebook específico, basta atualizar esta tabela.
 
 ## Próxima especificação
 

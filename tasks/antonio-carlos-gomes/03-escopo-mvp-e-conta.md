@@ -43,5 +43,7 @@ autenticação/persistência — um ADR em `docs/adr/` registrando a decisão.
   (`/home/usermicael/Projetos/IpeBook`), que entregou autenticação → catálogo → anúncios →
   negociação nessa sequência e com sucesso.
 - ADR criado (link, se aplicável): [docs/adr/0006-conta-com-email-e-google.md](../../docs/adr/0006-conta-com-email-e-google.md)
+- Confirmação: **o usuário solicitante confirmou diretamente em 2026-10-13** que a conta com
+  e-mail/senha e login Google está correta.
 - Pendências: a tecnologia concreta de autenticação/persistência não foi escolhida aqui —
   fica para a especificação técnica da Tarefa 8.

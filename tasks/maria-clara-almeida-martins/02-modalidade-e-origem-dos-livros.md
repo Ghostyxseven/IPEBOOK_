@@ -43,5 +43,7 @@ escolhida, alternativas consideradas e consequências.
   de Venda/Troca/Doação) e com o produto já validado em produção pelo projeto irmão
   (`/home/usermicael/Projetos/IpeBook`).
 - ADR criado (link): [docs/adr/0005-modalidade-venda-troca-doacao.md](../../docs/adr/0005-modalidade-venda-troca-doacao.md)
+- Confirmação: **o usuário solicitante confirmou diretamente em 2026-10-13** que venda+troca+
+  doação é a modalidade correta, encerrando a necessidade de reconciliar com o projeto irmão.
 - Pendências: extensão exata do modelo `Book` (campo de modalidade e demais campos de anúncio)
   fica para a especificação da primeira jornada funcional (Tarefa 8).
