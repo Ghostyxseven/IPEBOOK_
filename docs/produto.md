@@ -77,7 +77,12 @@ Não existem metas aprovadas de latência, disponibilidade, escala ou retenção
 | Quais ações compõem a primeira entrega útil? | Evita incluir funcionalidades sem prioridade | Antes do plano do primeiro incremento |
 | Haverá conta? Quais dados serão necessários? | Define acesso, privacidade e recuperação | Antes de autenticação/persistência |
 | De onde vêm os livros e como são disponibilizados? | Define cadastro, integridade e possíveis direitos de uso | Antes de importar conteúdo ou disponibilizar arquivos |
-| Quais plataformas precisam ser suportadas inicialmente? | Define validação e distribuição | Antes da primeira entrega aos usuários |
+
+### Decisões já tomadas
+
+| Questão | Decisão | Data |
+| --- | --- | --- |
+| Quais plataformas precisam ser suportadas inicialmente? | Android e Web. iOS fica fora da primeira entrega por enquanto (ver [tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md](../tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md)). | 2026-10-13 |
 
 O responsável pelo produto é o usuário solicitante até outra definição. Nenhuma resposta foi presumida nesta revisão.
 

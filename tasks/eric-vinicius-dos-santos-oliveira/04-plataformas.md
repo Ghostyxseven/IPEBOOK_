@@ -31,9 +31,12 @@ exigência da disciplina).
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Decisão:
-- Justificativa:
-- Pendências:
+- Data: 2026-10-13
+- Decisão: Plataformas suportadas inicialmente são **Android e Web**. iOS fica de fora da
+  primeira entrega por enquanto.
+- Justificativa: decisão do usuário solicitante (responsável pelo produto até outra definição).
+  É consistente com o projeto grande da equipe (`/home/usermicael/Projetos/IpeBook`), cujo
+  ADR 0040 já registra "iOS fora do mínimo desta entrega".
+- Pendências: versão mínima de SO (Android) e forma de distribuição (build interna, loja,
+  APK direto) ainda não definidas — continuam em aberto para quem assumir a configuração de
+  build/distribuição.
