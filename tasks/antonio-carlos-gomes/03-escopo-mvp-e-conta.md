@@ -33,11 +33,15 @@ autenticação/persistência — um ADR em `docs/adr/` registrando a decisão.
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Decisão (escopo priorizado):
-- Decisão (conta/autenticação):
-- Justificativa:
-- ADR criado (link, se aplicável):
-- Pendências:
+- Data: 2026-10-13
+- Decisão (escopo priorizado): (1) autenticação de conta, (2) cadastrar anúncio de livro,
+  (3) catálogo/listagem (já implementado), (4) solicitar e responder negociação simples. Busca/
+  filtros avançados e segurança/moderação ficam para depois do primeiro incremento.
+- Decisão (conta/autenticação): haverá conta, com e-mail/senha (ou código) e login Google;
+  dados mínimos nome e e-mail.
+- Justificativa: ordem de implementação já validada no projeto irmão
+  (`/home/usermicael/Projetos/IpeBook`), que entregou autenticação → catálogo → anúncios →
+  negociação nessa sequência e com sucesso.
+- ADR criado (link, se aplicável): [docs/adr/0006-conta-com-email-e-google.md](../../docs/adr/0006-conta-com-email-e-google.md)
+- Pendências: a tecnologia concreta de autenticação/persistência não foi escolhida aqui —
+  fica para a especificação técnica da Tarefa 8.

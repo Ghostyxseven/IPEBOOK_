@@ -35,10 +35,13 @@ escolhida, alternativas consideradas e consequências.
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Decisão:
-- Justificativa:
-- ADR criado (link):
-- Pendências:
+- Data: 2026-10-13
+- Decisão: modalidade = venda, troca e doação de livros físicos (sem biblioteca pessoal,
+  leitura digital ou empréstimo). Origem = cadastro manual pelo usuário (anúncio), sem
+  importação de catálogo externo.
+- Justificativa: alinhar com o design system já existente neste projeto (que já previa badges
+  de Venda/Troca/Doação) e com o produto já validado em produção pelo projeto irmão
+  (`/home/usermicael/Projetos/IpeBook`).
+- ADR criado (link): [docs/adr/0005-modalidade-venda-troca-doacao.md](../../docs/adr/0005-modalidade-venda-troca-doacao.md)
+- Pendências: extensão exata do modelo `Book` (campo de modalidade e demais campos de anúncio)
+  fica para a especificação da primeira jornada funcional (Tarefa 8).

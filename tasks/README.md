@@ -17,6 +17,13 @@ Esta pasta organiza o trabalho pendente da equipe em **dois repositórios**:
 Cada integrante tem sua própria subpasta, nomeada conforme [docs/equipe.md](../docs/equipe.md),
 com as tarefas de ambos os projetos juntas.
 
+**Atualização de 2026-10-13:** as tarefas 1, 2, 3, 4 e 7 (decisões de produto do `IPEBOOK_`) já
+têm decisão registrada em "Registro de execução", trazida do que a equipe já validou no projeto
+irmão (`/home/usermicael/Projetos/IpeBook`) — ver `docs/produto.md`, seção "Decisões já
+tomadas". Não é preciso reunião para respondê-las de novo; só revisar se alguém discordar. Isso
+libera a Tarefa 8 (especificar a primeira jornada funcional) para começar, e a equipe pode focar
+em código a partir daí.
+
 ## Como usar
 
 1. Ler os dois arquivos de achados primeiro.

@@ -6,13 +6,13 @@ Revisão: 2026-10-13. Este documento descreve a base implementada e identifica d
 
 O objetivo autorizado até aqui é iniciar um novo Ipebook com MVVM sofisticado, numa pasta independente, e documentar seu funcionamento. A entrega permite executar e evoluir uma aplicação Expo com uma listagem de livros de exemplo.
 
-A frase da interface “Um lugar para descobrir sua próxima leitura” sugere descoberta de livros, mas não define se o produto será de troca/doação, organização de biblioteca ou leitura digital. Não adotar uma dessas modalidades como requisito sem definição do responsável pelo produto.
+A frase da interface “Um lugar para descobrir sua próxima leitura” sugere descoberta de livros. Com a decisão de modalidade abaixo, ela passa a significar especificamente compra, venda, troca e doação de livros entre pessoas da comunidade.
 
 ## Público e problema
 
-O público comprovadamente atendido nesta etapa é quem desenvolve e valida a base do Ipebook. O leitor final pode visualizar a tela inicial, mas ainda não realiza uma jornada completa de descoberta ou gestão de livros.
+**Decidido em 2026-10-13** (ver [tasks/micael-cardoso-reis/01-problema-e-publico.md](../tasks/micael-cardoso-reis/01-problema-e-publico.md)): o Ipebook conecta pessoas que têm livros parados com pessoas da comunidade que querem ler, viabilizando compra, venda, troca e doação de forma simples e sustentável — o mesmo problema e proposta de valor já validados no projeto irmão da equipe (`/home/usermicael/Projetos/IpeBook`). O público prioritário é a comunidade local de leitores que já possuem livros físicos parados em casa e querem tanto se desfazer deles quanto encontrar novos títulos sem depender de livraria.
 
-O problema técnico desta etapa é separar responsabilidades e permitir evolução testável. O problema do usuário final, o público prioritário e a proposta de valor ainda precisam ser definidos. Não há pesquisa com usuários ou métricas de uso registradas.
+Esta decisão foi trazida do trabalho já em produção da equipe no projeto irmão, não de pesquisa de usuário nova feita nesta base pequena — não há métricas de uso próprias registradas aqui. Se a equipe quiser divergir do produto irmão para este Ipebook específico, revisar esta seção.
 
 ## Escopo e situação
 
@@ -22,12 +22,12 @@ O problema técnico desta etapa é separar responsabilidades e permitir evoluç�
 | Mostrar ausência de livros | Implementada e configuração padrão |
 | Renderizar títulos e autores fornecidos pelo caso de uso | Implementada; dados de exemplo exercitados em testes |
 | Tratar carregamento, erro e nova tentativa | Implementada |
-| Cadastrar ou editar livros | Não implementada; escopo ainda não definido |
-| Conta, autenticação e perfil | Não implementada; necessidade ainda não definida |
-| Busca, filtros e detalhes | Não implementados; escopo ainda não definido |
-| Troca, doação, empréstimo ou venda | Modalidade não definida |
-| Leitura de arquivos digitais | Não implementada; necessidade ainda não definida |
-| Banco e sincronização | Não implementados; tecnologia não decidida |
+| Cadastrar ou editar livros | Não implementada; decidido que existirá (anúncio manual do usuário), prioridade do 2º item do primeiro incremento |
+| Conta, autenticação e perfil | Não implementada; decidido que existirá (e-mail/senha e Google, ver decisões abaixo) |
+| Busca, filtros e detalhes | Não implementados; fora do primeiro incremento (ver decisões abaixo) |
+| Troca, doação, empréstimo ou venda | Decidido: venda, troca e doação. Empréstimo não entra no escopo |
+| Leitura de arquivos digitais | Não implementada; fora de escopo — modalidade decidida é livro físico |
+| Banco e sincronização | Não implementados; tecnologia não decidida nesta base pequena (o projeto irmão usa Supabase) |
 
 ## Requisitos funcionais atuais
 
@@ -53,7 +53,7 @@ Testes e limitações de cobertura estão em [qualidade.md](qualidade.md). Exist
 - A base inicia vazia. Dados fictícios não devem ser apresentados como acervo real.
 - Casos de uso dependem de contratos; detalhes da tecnologia de dados ficam na infraestrutura.
 
-Não há regra definida para duplicidade, ISBN, limite de livros, moderação, disponibilidade, localização ou participação de menores. Esses pontos só devem virar requisitos se forem pertinentes à modalidade escolhida.
+Não há regra definida para duplicidade, ISBN, limite de livros, moderação, disponibilidade, localização ou participação de menores. Com a modalidade decidida (venda/troca/doação), esses pontos podem virar requisitos nas próximas especificações, mas ainda não foram implementados nesta base.
 
 ## Requisitos de qualidade
 
@@ -70,21 +70,27 @@ Não existem metas aprovadas de latência, disponibilidade, escala ou retenção
 
 ## Decisões de produto pendentes
 
-| Questão | Por que importa | Quando resolver |
-| --- | --- | --- |
-| Qual problema o Ipebook resolve e para quem? | Determina a jornada central | Antes de especificar a primeira funcionalidade de produto |
-| Qual modalidade: troca/doação, biblioteca pessoal, leitura digital ou outra? | Muda entidades, permissões e integrações | Antes do modelo definitivo de livro |
-| Quais ações compõem a primeira entrega útil? | Evita incluir funcionalidades sem prioridade | Antes do plano do primeiro incremento |
-| Haverá conta? Quais dados serão necessários? | Define acesso, privacidade e recuperação | Antes de autenticação/persistência |
-| De onde vêm os livros e como são disponibilizados? | Define cadastro, integridade e possíveis direitos de uso | Antes de importar conteúdo ou disponibilizar arquivos |
+Nenhuma questão de produto segue pendente no momento — todas as 6 originais foram respondidas
+(ver tabela "Decisões já tomadas" abaixo). O que resta é refinamento: versão mínima de SO
+Android, forma de distribuição, e regras de detalhe (duplicidade, ISBN, moderação) à medida que
+forem especificadas.
 
 ### Decisões já tomadas
 
 | Questão | Decisão | Data |
 | --- | --- | --- |
+| Qual problema o Ipebook resolve e para quem? | Conectar pessoas com livros parados a pessoas da comunidade que querem ler, via compra/venda/troca/doação. Público: comunidade local de leitores. Trazido do projeto irmão já em produção (ver [tasks/micael-cardoso-reis/01-problema-e-publico.md](../tasks/micael-cardoso-reis/01-problema-e-publico.md)). | 2026-10-13 |
+| Qual modalidade: troca/doação, biblioteca pessoal, leitura digital ou outra? | Venda, troca e doação de livros físicos. Mesma modalidade do projeto irmão (ver [tasks/maria-clara-almeida-martins/02-modalidade-e-origem-dos-livros.md](../tasks/maria-clara-almeida-martins/02-modalidade-e-origem-dos-livros.md)). | 2026-10-13 |
+| De onde vêm os livros e como são disponibilizados? | Cadastro manual pelo próprio usuário (anúncio com título, autor, modalidade e, opcionalmente, foto). Sem importação de catálogo externo nesta etapa. | 2026-10-13 |
+| Haverá conta? Quais dados serão necessários? | Sim — conta com e-mail/senha (ou código por e-mail) e login com Google, dados mínimos nome e e-mail, mesma estratégia do projeto irmão (ADR 0006/0028 lá). Ver [tasks/antonio-carlos-gomes/03-escopo-mvp-e-conta.md](../tasks/antonio-carlos-gomes/03-escopo-mvp-e-conta.md). | 2026-10-13 |
+| Quais ações compõem a primeira entrega útil? | Nesta ordem: (1) autenticação de conta, (2) cadastrar anúncio de livro, (3) catálogo/listagem (já implementado), (4) solicitar e responder negociação simples. Busca/filtros avançados e segurança/moderação ficam para depois. | 2026-10-13 |
 | Quais plataformas precisam ser suportadas inicialmente? | Android e Web. iOS fica fora da primeira entrega por enquanto (ver [tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md](../tasks/eric-vinicius-dos-santos-oliveira/04-plataformas.md)). | 2026-10-13 |
 
-O responsável pelo produto é o usuário solicitante até outra definição. Nenhuma resposta foi presumida nesta revisão.
+Todas as decisões acima (exceto a de plataformas, que já tinha sido resolvida em conversa
+direta com o usuário) foram trazidas do trabalho já validado em produção da equipe no projeto
+irmão (`/home/usermicael/Projetos/IpeBook`), e não de pesquisa de usuário nova feita nesta base
+pequena. O responsável pelo produto é o usuário solicitante; se a equipe quiser divergir de
+alguma dessas decisões para este Ipebook específico, basta atualizar esta tabela.
 
 ## Próxima especificação
 

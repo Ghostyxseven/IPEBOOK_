@@ -35,9 +35,13 @@ com a linha correspondente respondida, e um parágrafo curto no próprio `produt
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Decisão:
-- Justificativa:
-- Pendências:
+- Data: 2026-10-13
+- Decisão: o Ipebook conecta pessoas com livros parados a pessoas da comunidade que querem ler,
+  via compra, venda, troca e doação. Público prioritário: comunidade local de leitores que já
+  têm livros físicos em casa.
+- Justificativa: trazido do trabalho já em produção da equipe no projeto irmão
+  (`/home/usermicael/Projetos/IpeBook`, ver `README.md` de lá), que já valida esse problema e
+  proposta de valor em specs e ADRs implementados. Não é pesquisa de usuário nova feita nesta
+  base pequena.
+- Pendências: se a equipe quiser que este `IPEBOOK_` siga um problema/público diferente do
+  projeto irmão, revisar esta decisão e `docs/produto.md`.

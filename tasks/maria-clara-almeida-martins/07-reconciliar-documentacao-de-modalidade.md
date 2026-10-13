@@ -48,10 +48,12 @@ registrando a decisão final em `docs/adr/`.
 
 ## Registro de execução
 
-_(preencher ao concluir: o que foi decidido, por quê, data, e o que ficou pendente)_
-
-- Data:
-- Decisão final sobre a modalidade:
-- Qual documento estava desatualizado e o que foi corrigido:
-- ADR criado (link):
-- Pendências:
+- Data: 2026-10-13
+- Decisão final sobre a modalidade: venda, troca e doação de livros físicos — confirma o que
+  `docs/design-system.md` já descrevia.
+- Qual documento estava desatualizado e o que foi corrigido: `docs/produto.md` estava
+  desatualizado (listava a modalidade como pendente); atualizado para refletir a decisão, com
+  a tabela de "Decisões de produto pendentes" movendo o item para "Decisões já tomadas".
+- ADR criado (link): [docs/adr/0005-modalidade-venda-troca-doacao.md](../../docs/adr/0005-modalidade-venda-troca-doacao.md)
+- Pendências: nenhuma quanto à modalidade em si; resta especificar o modelo de dados na
+  primeira jornada funcional (Tarefa 8).
