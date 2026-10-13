@@ -177,5 +177,6 @@ Projeto novo e independente em `~/IPEBOOK_`. Arquitetura obrigatória: skill `/h
 - Usar Superpowers proporcionalmente, mantendo planos e tarefas no Spec Kit; toda documentação em português.
 - `npm ci`, `npm run web`, `npm run validate`, `npm run build:web`.
 - Não usar Playwright. Validar navegador por CDP ou ferramentas disponíveis que não dependam dele.
-- Camadas e responsabilidades: consulte `README.md`. Apenas `src/di/container.ts` pode importar implementações de `infra`.
-- Estado inicial: branch develop, sem remoto e sem commits. Atualizar este contexto quando houver versionamento.
+- Camadas e responsabilidades: consulte `docs/arquitetura.md`. Fora da própria infraestrutura e dos testes, apenas `src/di/container.ts` pode importar implementações de `infra`.
+- Documentação: `docs/README.md`; produto e pendências em `docs/produto.md`; estado e continuidade em `docs/estado.md`.
+- Estado verificado em 2026-10-13: branch `develop` acompanha `origin/develop`; commit inicial `bb97d37`. Consultar Git ao retomar; não inferir aprovação da CI ou publicação.

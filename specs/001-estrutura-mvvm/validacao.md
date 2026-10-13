@@ -1,6 +1,8 @@
 # Validação da estrutura inicial
 
-Data: 2026-10-13. Entrega implementada e validada localmente. Branch: `develop`, sem commits e sem remoto.
+Data: 2026-10-13. Registro histórico da criação: entrega implementada e validada localmente. Naquele momento, branch `develop`, sem commits e sem remoto.
+
+Atualização documental: posteriormente foi criado o commit `bb97d37` e configurado o acompanhamento de `origin/develop`. As evidências abaixo são da criação; situação corrente em [estado e continuidade](../../docs/estado.md).
 
 ## Evidências
 - `npm run validate`: código 0; TypeScript estrito, 11 arquivos na checagem de imports e 9 testes em 2 arquivos aprovados.

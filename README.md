@@ -1,40 +1,17 @@
 # Ipebook
 
-Base nova em Expo e TypeScript com MVVM sofisticado. O exemplo inicial lista um catálogo vazio em memória; não possui autenticação, cadastro ou banco.
+Base independente em Expo, React Native e TypeScript, com MVVM sofisticado em sete camadas. A versão atual exibe um catálogo vazio em memória; não possui cadastro, autenticação ou banco.
 
-## Executar
+## Começar
 
-Pré-requisitos: Node.js 24 LTS e npm. A instalação inicial também foi executada com Node 26.8.2. Android/iOS precisam de emulador, dispositivo e ambiente Expo compatível com o SDK 57; iOS local requer macOS.
+Na raiz do projeto, com Node.js 24 (versão usada pela CI) e npm:
 
 ```bash
 npm ci
 npm run web
 ```
 
-Para iniciar o Expo: `npm start`. Atalhos: `npm run android` e `npm run ios`.
-
-## Estrutura e responsabilidades
-
-```text
-src/
-├── app/                 # Rotas finas e layout de navegação
-├── view/                # Renderização e eventos da interface
-├── viewmodel/           # Hooks: estado, ações e navegação
-├── usecase/             # Contratos e orquestração do domínio
-├── model/
-│   ├── entities/        # Tipos puros
-│   ├── datasources/     # Contratos de persistência
-│   ├── services/        # Contratos futuros, quando necessários
-│   └── errors.ts        # Erros de domínio
-├── infra/
-│   ├── datasources/     # Implementação em memória
-│   └── services/        # Implementações futuras
-└── di/container.ts      # Composição das dependências
-```
-
-Fluxo inicial: `app/index.tsx` → `view/home.tsx` → `useHomeViewModel` → `IBookUseCases` → `IBookDataSource`. O container conecta `BookUseCases` a `MemoryBookDataSource`. Os dados não persistem. A ausência de livros é intencional.
-
-Usar alias `@/`, contratos `I...` em arquivos `i...`, hooks `use...ViewModel` retornando `[state, actions]`. Apenas o container importa infraestrutura fora da própria camada. `_layout.tsx` pode configurar navegação; as demais rotas reexportam Views. Testes podem importar implementações para verificá-las.
+Abrir a URL exibida pelo Expo. A primeira validação local foi feita com Node 26.8.2. O código atual não exige variáveis de ambiente. Orientações de Android/iOS e solução de problemas estão no [guia de desenvolvimento](docs/desenvolvimento.md).
 
 ## Verificar
 
@@ -43,15 +20,22 @@ npm run validate
 npm run build:web
 ```
 
-`validate` executa TypeScript estrito, verificação dos imports entre camadas e testes de comportamento. Interrompe no primeiro comando que falhar. A verificação de imports não substitui revisão das responsabilidades. O build exporta a versão web para `dist/`.
+A validação reúne tipos, imports entre camadas e testes. O build exporta a web para `dist/`; isso não publica o aplicativo nem comprova funcionamento nativo. Consultar [cobertura e limitações](docs/qualidade.md).
 
-CI configurada em `.github/workflows/validacao.yml` com os mesmos comandos, Node 24 e `npm ci`. Não foi executada remotamente. Não há publicação nem remoto Git configurado.
+## Documentação
 
-## Desenvolvimento
+- [Índice completo](docs/README.md)
+- [Produto, público, requisitos e decisões pendentes](docs/produto.md)
+- [Arquitetura, contratos e fluxo MVVM](docs/arquitetura.md)
+- [Instalação, configuração e contribuição](docs/desenvolvimento.md)
+- [Testes e integração contínua](docs/qualidade.md)
+- [Guia de uso da versão atual](docs/uso.md)
+- [Estado da entrega e continuidade](docs/estado.md)
 
-Usar `develop` como base; não fazer commits diretamente em `main`. Esta entrega não cria commits.
-Seguir [AGENTS.md](AGENTS.md), [constituição](.specify/memory/constitution.md), [especificação](specs/001-estrutura-mvvm/spec.md), [plano](specs/001-estrutura-mvvm/plan.md), [tarefas](specs/001-estrutura-mvvm/tasks.md) e [ADRs](docs/adr/README.md).
+## Organização
 
-O [Spec Kit](https://github.com/github/spec-kit) foi inicializado com integração Codex em `.agents/skills`. Templates de documentos foram adaptados para português; scripts e skills de terceiros mantêm os identificadores originais. Usar Superpowers proporcionalmente por catálogo ou instalação disponível, mantendo os planos no Spec Kit.
+`src/app` define rotas; `view` renderiza; `viewmodel` gerencia estado e ações; `usecase` orquestra o domínio; `model` contém entidades e contratos; `infra` implementa dados/serviços; `di` compõe dependências.
 
-Resultados e limitações da entrega: [validação](specs/001-estrutura-mvvm/validacao.md).
+Seguir [AGENTS.md](AGENTS.md), a [constituição](.specify/memory/constitution.md), as [especificações](specs/001-estrutura-mvvm/spec.md) e os [ADRs](docs/adr/README.md). O [Spec Kit](https://github.com/github/spec-kit) está inicializado para Codex em `.agents/skills`. Usar Superpowers conforme as instruções do projeto e manter os artefatos em português.
+
+O repositório acompanha `origin/develop`. Desenvolver em `develop` ou branches derivadas; integração de novas entregas remotas por PR autorizado para `develop`. `main` fica reservada a versões revisadas e aprovadas. O estado local do Git não comprova CI remota aprovada ou aplicação publicada.
