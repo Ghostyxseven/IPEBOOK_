@@ -22,8 +22,9 @@ Esta decisão foi trazida do trabalho já em produção da equipe no projeto irm
 | Mostrar ausência de livros | Implementada e configuração padrão |
 | Renderizar títulos e autores fornecidos pelo caso de uso | Implementada; dados de exemplo exercitados em testes |
 | Tratar carregamento, erro e nova tentativa | Implementada |
-| Cadastrar ou editar livros | Não implementada; decidido que existirá (anúncio manual do usuário), prioridade do 2º item do primeiro incremento |
-| Conta, autenticação e perfil | Não implementada; decidido que existirá (e-mail/senha e Google, ver decisões abaixo) |
+| Cadastrar livros (editar fica para depois) | Não implementada; **especificada** em [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/), atribuída ao Eric (Tarefa 24) |
+| Conta e autenticação (perfil fica para depois) | Não implementada; **especificada** em [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/), atribuída à Maria Clara (Tarefa 23) |
+| Solicitar e responder negociação simples | Não implementada; **especificada** em [specs/004](../specs/004-negociacao-simples/), atribuída ao Antonio (Tarefa 25) |
 | Busca, filtros e detalhes | Não implementados; fora do primeiro incremento (ver decisões abaixo) |
 | Troca, doação, empréstimo ou venda | Decidido: venda, troca e doação. Empréstimo não entra no escopo |
 | Leitura de arquivos digitais | Não implementada; fora de escopo — modalidade decidida é livro físico |

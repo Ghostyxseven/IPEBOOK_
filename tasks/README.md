@@ -6,6 +6,10 @@ Esta pasta organiza o trabalho pendente da equipe em **dois repositórios**:
   pendências técnicas locais.
 - **Tarefas 9 a 22** — o projeto grande da equipe, em `/home/usermicael/Projetos/IpeBook`
   (42 specs, 41 ADRs), organizado pela mesma divisão de telas/features que a equipe já usa lá.
+- **Tarefas 23 a 25** — implementação das specs do MVP deste projeto (`IPEBOOK_`):
+  [specs/003-autenticacao-e-cadastro-de-anuncio/](../specs/003-autenticacao-e-cadastro-de-anuncio/)
+  e [specs/004-negociacao-simples/](../specs/004-negociacao-simples/), que fecham os 4 itens do
+  escopo do MVP decidido na Tarefa 3.
 
 ## Leitura obrigatória antes de qualquer tarefa
 
@@ -65,6 +69,18 @@ Tarefa 5 (integrar componentes visuais) — Eric ─┘ não dependem das demais
 Tarefa 6 (resolver ADR 0019 ausente) — Micael  ─ pode começar já
 ```
 
+## Ordem de dependência — tarefas 23 a 25 (implementação do MVP neste repositório)
+
+```
+Tarefa 23 (implementar autenticação, spec 003) — Maria Clara ─┐ podem ser feitas em paralelo,
+Tarefa 24 (implementar cadastro de anúncio, spec 003) — Eric ─┘ combinar antes de mexer em
+                                                                src/view/home.tsx e
+                                                                src/di/container.ts
+      │
+      ▼
+Tarefa 25 (implementar negociação simples, spec 004) — Antonio
+```
+
 ## Ordem de dependência — tarefas 9 a 22 (projeto grande)
 
 ```
@@ -95,6 +111,14 @@ Tarefas 15, 18, 22 (web responsiva, cada um sua parte) — podem ser feitas em p
 | Maria Clara Almeida Martins | [maria-clara-almeida-martins/](maria-clara-almeida-martins/) | [02 — Modalidade e origem dos livros](maria-clara-almeida-martins/02-modalidade-e-origem-dos-livros.md) · [07 — Reconciliar documentação de modalidade](maria-clara-almeida-martins/07-reconciliar-documentacao-de-modalidade.md) | Tarefa 1 |
 | Antonio Carlos Gomes | [antonio-carlos-gomes/](antonio-carlos-gomes/) | [03 — Escopo do MVP e conta/autenticação](antonio-carlos-gomes/03-escopo-mvp-e-conta.md) · [08 — Especificar primeira jornada funcional](antonio-carlos-gomes/08-especificar-primeira-jornada-funcional.md) ([#3](https://github.com/Ghostyxseven/IPEBOOK_/issues/3)) | Tarefas 1, 2, 7 |
 | Eric Vinícius dos Santos Oliveira | [eric-vinicius-dos-santos-oliveira/](eric-vinicius-dos-santos-oliveira/) | [04 — Plataformas suportadas inicialmente](eric-vinicius-dos-santos-oliveira/04-plataformas.md) · [05 — Integrar componentes visuais na Home](eric-vinicius-dos-santos-oliveira/05-integrar-componentes-visuais-na-home.md) ([#1](https://github.com/Ghostyxseven/IPEBOOK_/issues/1)) | — |
+
+### Implementação do MVP neste repositório
+
+| Integrante | Tarefa | Spec |
+| --- | --- | --- |
+| Maria Clara Almeida Martins | [23 — Implementar autenticação](maria-clara-almeida-martins/23-implementar-autenticacao-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Eric Vinícius dos Santos Oliveira | [24 — Implementar cadastro de anúncio](eric-vinicius-dos-santos-oliveira/24-implementar-cadastro-anuncio-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Antonio Carlos Gomes | [25 — Implementar negociação simples](antonio-carlos-gomes/25-implementar-negociacao-spec-004.md) | [specs/004](../specs/004-negociacao-simples/) |
 
 ### No projeto grande (`/home/usermicael/Projetos/IpeBook`)
 
