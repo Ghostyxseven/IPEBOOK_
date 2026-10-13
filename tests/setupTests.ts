@@ -1,6 +1,10 @@
 import Module from "node:module";
 import { fileURLToPath } from "node:url";
-import { expect } from "vitest";
+import { expect, vi } from "vitest";
+
+vi.mock("expo-symbols", () => ({
+  SymbolView: (props: any) => null,
+}));
 
 const mockPath = fileURLToPath(new URL("./mocks/react-native.cjs", import.meta.url));
 
@@ -19,3 +23,4 @@ const anyGlobal = globalThis as unknown as { expect: typeof expect };
 if (!anyGlobal.expect) {
   anyGlobal.expect = expect;
 }
+
