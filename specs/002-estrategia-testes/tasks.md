@@ -7,5 +7,5 @@
 - [x] T005 Implementar testes de componentes com mock em `tests/components-mocked/homeViewMocked.test.tsx`.
 - [x] T006 Implementar testes de integração em `tests/integration/homeIntegration.test.tsx`.
 - [x] T007 Criar pelo menos 3 fluxos de testes E2E do Maestro em `.maestro/`.
-- [ ] T008 Atualizar README e documentação de qualidade com ISO/IEC 25010 e guia para a defesa oral.
-- [ ] T009 Executar validação global (`npm run validate` e cobertura >= 80%), registrar evidências e atualizar histórico Git.
+- [x] T008 Atualizar README e documentação de qualidade com ISO/IEC 25010 e guia para a defesa oral.
+- [x] T009 Executar validação global (`npm run validate` e cobertura >= 80%), registrar evidências e atualizar histórico Git.

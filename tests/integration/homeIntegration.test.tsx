@@ -19,8 +19,7 @@ describe("testes de integração: View + ViewModel + UseCase + Datasource (ISO/I
 
     // 3. Componente integrado alimentado pelo caso de uso real
     function IntegratedHome() {
-      // @ts-expect-error injetando useCases reais na ViewModel
-      const [state] = useHomeViewModel(useCases);
+            const [state] = useHomeViewModel(useCases);
 
       return (
         <React.Fragment>

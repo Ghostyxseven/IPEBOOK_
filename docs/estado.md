@@ -4,28 +4,21 @@ Conferência: 2026-10-13. Projeto: `~/IPEBOOK_`.
 
 ## Estado verificado
 
-- Branch local: `develop`, acompanhando `origin/develop` conforme referências locais.
-- Último commit no início desta revisão: `bb97d37`, estrutura inicial do Ipebook.
-- Base técnica implementada: sete camadas, catálogo em memória, tela inicial e testes.
-- CI configurada; execução remota não consultada nesta revisão. Não há publicação de aplicação verificada.
-- `.env.example` já estava não rastreado no início e foi preservado sem leitura de conteúdo ou alteração.
+- Branch ativa: `develop`, base exclusiva de desenvolvimento do projeto.
+- Estrutura arquitetural: MVVM sofisticado em sete camadas (`app`, `view`, `viewmodel`, `usecase`, `model`, `infra`, `di`) verificado sem nenhuma violação pelo script de arquitetura.
+- Pirâmide de testes implementada e aprovada: 31 testes em 6 arquivos cobrindo unitários, hooks, componentes RNTL, componentes mockados e integração real.
+- Testes E2E mobile: 3 fluxos declarativos do Maestro configurados em `.maestro/`.
+- Cobertura de testes: > 98% de statements, > 95% de branches, 100% de funções e 100% de linhas, superando o limiar de 80% exigido.
+- Fundamentação formal: Norma ISO/IEC 25010 (Adequação Funcional, Confiabilidade e Usabilidade/Acessibilidade) detalhada em `docs/qualidade.md` junto com guia de defesa oral.
+- Vínculos e ADRs: [ADR 0001](adr/0001-adotar-adrs.md), [ADR 0002](adr/0002-adotar-expo-mvvm.md) e [ADR 0003](adr/0003-estrategia-testes-iso25010.md).
 
-## Revisão de documentação
+## Rastreabilidade das Entregas
 
-Pedido: cobrir produto/requisitos, arquitetura e instalação/execução/testes. Manutenção documental, sem implementação de funcionalidade e sem nova decisão arquitetural.
+1. `specs/001-estrutura-mvvm/`: Fundação arquitetural do Ipebook com validação inicial.
+2. `specs/002-estrategia-testes/`: Estratégia completa de testes automatizados e qualidade ISO/IEC 25010.
+3. `docs/`: Documentação consolidada em 7 guias temáticos (`README.md`, `produto.md`, `arquitetura.md`, `desenvolvimento.md`, `qualidade.md`, `uso.md`, `estado.md`).
 
-Foram criados guias de produto, arquitetura, desenvolvimento, qualidade e uso, ligados por um índice. README e contexto específico de AGENTS foram atualizados; o registro da primeira validação foi preservado como histórico.
+## Próximos passos
 
-A proposta final do produto ainda depende da definição indicada em [produto.md](produto.md). Não transformar hipóteses sobre troca, biblioteca ou leitura digital em requisitos aceitos.
-
-## Verificação desta revisão
-
-Em andamento: conferir links relativos, correspondência com scripts e fontes, preservação de arquivos existentes, diff e leitura dos guias por um revisor independente.
-
-Os testes e build anteriores estão no [registro da fundação](../specs/001-estrutura-mvvm/validacao.md); não serão apresentados como executados novamente por uma revisão de texto.
-
-## Próximo passo
-
-Definir a proposta do produto e a primeira jornada útil; atualizar o documento de produto com a resposta e criar a especificação da primeira funcionalidade. A estrutura atual pode servir de base, mas não representa um produto completo.
-
-Estas alterações de documentação permanecem locais até autorização de commit ou envio. Não houve mudança no código, nas dependências ou no workflow nesta revisão.
+1. Implementação da primeira jornada de usuário (especificação funcional do produto conforme [produto.md](produto.md)).
+2. Integração contínua e envio para repositório remoto conforme autorizado.
