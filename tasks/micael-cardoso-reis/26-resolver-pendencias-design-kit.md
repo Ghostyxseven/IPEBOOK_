@@ -47,8 +47,21 @@ implementação das telas.
 
 ## Registro de execução
 
-- Data:
-- Decisão de tokens:
-- Mecanismo de fonte escolhido:
-- Contraste verificado (resultado):
-- Pendências:
+- Data: 2026-10-14
+- Decisão de tokens: `design-kit/tokens.json` é a fonte única; `design-tokens.json` na raiz foi
+  removido. `src/view/tokens.ts` passou a refletir esses valores (tema claro), mantendo as
+  chaves antigas intactas e acrescentando `colors.m3` com os papéis Material 3 ainda não
+  cobertos. Registrado em [ADR 0009](../../docs/adr/0009-design-kit-tokens-como-fonte-unica.md).
+- Mecanismo de fonte escolhido: `expo-font` + `@expo-google-fonts/source-serif-4` (peso 700,
+  marca) e `@expo-google-fonts/roboto` (pesos 400/500/600, interface) — não `roboto-flex`, que só
+  tem o corte estático Regular disponível via Expo. Hook `src/view/useIpebookFonts.ts`, usado em
+  `src/app/_layout.tsx` (bloqueia a renderização até carregar).
+- Contraste verificado (resultado): calculados manualmente (fórmula WCAG de luminância relativa)
+  6 pares críticos — todos bateram com os valores documentados no `tokens.json`: on-surface/
+  surface 16,47:1, on-surface-variant/surface 8,79:1, error/surface 6,27:1, focus-ring/surface
+  3,90:1, on-secondary-container/secondary-container 12,10:1, on-doacao-container/
+  doacao-container 7,02:1. Não foi feita auditoria dos ~50 tokens de cor restantes.
+- Testes: `npm run validate` passa (typecheck, arquitetura, 36 testes, cobertura 98,79%
+  statements). Novo teste em `tests/unit/useIpebookFonts.test.ts`.
+- Pendências: nenhuma das 3 originais. Resta, para quem implementar as telas, efetivamente usar
+  `fontFamily`/`colors.m3` nos componentes novos (não é desta tarefa).
