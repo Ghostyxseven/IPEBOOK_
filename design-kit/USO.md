@@ -33,6 +33,19 @@ modalidade Venda/Troca/Doação/Reservado/Concluído, capas ilustrativas, tema e
 usar em código, reconciliar os dois** — não presumir qual prevalece sem decisão da equipe. Isso
 não foi decidido aqui; é trabalho para quem for implementar a camada visual das specs 003/004.
 
+## Decidido: sem dark mode; Android Material 3, iOS Liquid Glass (ADR 0008)
+
+- **Sem tema escuro nesta etapa.** Ignorar os valores `dark` em `tokens.json` ao reconciliar os
+  tokens — só o tema claro entra em código agora. Não implementar toggle de tema nem lógica de
+  `useColorScheme`.
+- **Android segue Material Design 3** (compostos, elevação, `surface-container-*`, navegação de
+  5 destinos) — ver `README.md` deste kit, seção "Plataformas".
+- **iOS segue Liquid Glass** (vidro em controles flutuantes) **só quando/se iOS voltar ao
+  escopo** — hoje a plataforma-alvo é Android e Web (Tarefa 4). Não implementar nada de Liquid
+  Glass agora; é só a intenção registrada para o futuro.
+- Ver [ADR 0008](../docs/adr/0008-sem-dark-mode-android-md3-ios-liquid-glass.md) para o
+  registro completo da decisão.
+
 ## Como usar ao implementar
 
 1. Ler `README.md` (este README do design-kit) para entender voz, cor, tipografia e regras de
