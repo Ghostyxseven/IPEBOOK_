@@ -68,13 +68,22 @@ Tarefa 6 (resolver ADR 0019 ausente) — Micael  ─ pode começar já
 ## Ordem de dependência — tarefas 23 a 25 (implementação do MVP neste repositório)
 
 ```
-Tarefa 23 (implementar autenticação, spec 003) — Maria Clara ─┐ podem ser feitas em paralelo,
-Tarefa 24 (implementar cadastro de anúncio, spec 003) — Eric ─┘ combinar antes de mexer em
-                                                                src/view/home.tsx e
-                                                                src/di/container.ts
+#23 Modelo (Maria Clara) ─┐ podem ser feitas em paralelo (arquivos diferentes)   #30 Modelo (Antonio)
+#26 Modelo (Eric)        ─┘                                                       ─ pode começar já também
+      │                                                                              (coordenar com #26
+      ▼                                                                              em book.ts)
+#24 Caso de uso+infra (Maria Clara) ─┐
+#27 Caso de uso+infra (Eric)        ─┘ paralelo
       │
       ▼
-Tarefa 25 (implementar negociação simples, spec 004) — Antonio
+#25 ViewModel+telas (Maria Clara) ─┐
+#28 ViewModel+tela (Eric)         ─┘ paralelo
+      │
+      ▼
+#29 Conjunta: container, Home, integração final (Maria Clara + Eric)
+      │
+      ▼
+Resto da Tarefa 25 (negociação completa, Antonio) — só agora depende de 23/24 prontas
 ```
 
 ## Backlog futuro (tarefas 9 a 22) — não é trabalho ativo
@@ -97,11 +106,15 @@ de verdade para o `IPEBOOK_`. Ver cada arquivo para o que exatamente ficou regis
 
 ### Implementação do MVP neste repositório
 
-| Integrante | Tarefa | Spec |
-| --- | --- | --- |
-| Maria Clara Almeida Martins | [23 ([#19](https://github.com/Ghostyxseven/IPEBOOK_/issues/19)) — Implementar autenticação](maria-clara-almeida-martins/23-implementar-autenticacao-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
-| Eric Vinícius dos Santos Oliveira | [24 ([#20](https://github.com/Ghostyxseven/IPEBOOK_/issues/20)) — Implementar cadastro de anúncio](eric-vinicius-dos-santos-oliveira/24-implementar-cadastro-anuncio-spec-003.md) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
-| Antonio Carlos Gomes | [25 ([#21](https://github.com/Ghostyxseven/IPEBOOK_/issues/21)) — Implementar negociação simples](antonio-carlos-gomes/25-implementar-negociacao-spec-004.md) | [specs/004](../specs/004-negociacao-simples/) |
+Cada tarefa grande (23, 24, 25) virou issues menores e independentes — trabalhar uma de cada
+vez, não a issue grande inteira de uma só vez.
+
+| Integrante | Tarefa | Issues menores (fazer nesta ordem) | Spec |
+| --- | --- | --- | --- |
+| Maria Clara Almeida Martins | [23 (#19) — Implementar autenticação](maria-clara-almeida-martins/23-implementar-autenticacao-spec-003.md) | [#23 Modelo](https://github.com/Ghostyxseven/IPEBOOK_/issues/23) (pode começar já) → [#24 Caso de uso+infra](https://github.com/Ghostyxseven/IPEBOOK_/issues/24) → [#25 ViewModel+telas](https://github.com/Ghostyxseven/IPEBOOK_/issues/25) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Eric Vinícius dos Santos Oliveira | [24 (#20) — Implementar cadastro de anúncio](eric-vinicius-dos-santos-oliveira/24-implementar-cadastro-anuncio-spec-003.md) | [#26 Modelo](https://github.com/Ghostyxseven/IPEBOOK_/issues/26) (pode começar já) → [#27 Caso de uso+infra](https://github.com/Ghostyxseven/IPEBOOK_/issues/27) → [#28 ViewModel+tela](https://github.com/Ghostyxseven/IPEBOOK_/issues/28) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Maria Clara + Eric | — | [#29 Conjunta — container, Home, integração final](https://github.com/Ghostyxseven/IPEBOOK_/issues/29) (depois de tudo acima) | [specs/003](../specs/003-autenticacao-e-cadastro-de-anuncio/) |
+| Antonio Carlos Gomes | [25 (#21) — Implementar negociação simples](antonio-carlos-gomes/25-implementar-negociacao-spec-004.md) | [#30 Modelo](https://github.com/Ghostyxseven/IPEBOOK_/issues/30) (**pode começar já**, não espera 23/24) → resto aguarda 23+24 prontas | [specs/004](../specs/004-negociacao-simples/) |
 
 ### Backlog futuro, por integrante (não é trabalho ativo — ver nota no topo)
 
