@@ -10,6 +10,10 @@ Domínio: Gestão de Inventário/Anúncios (mesma divisão do projeto irmão)
 já está especificada. As tarefas de cadastro de anúncio são suas: T001 (parte), T002 (parte),
 T005, T006, T007, T008, T010, T012, T014 (rota de anunciar), conforme marcado em `tasks.md`.
 
+Para a tela (T012), seguir [`design-kit/USO.md`](../../design-kit/USO.md) — tem os componentes
+`TextField`, `Chip` (modalidade), `StepIndicator` e `Tag` de referência, e a regra de que a cor
+nunca é o único sinal da modalidade (tag sempre leva o nome).
+
 ## O que fazer
 
 Seguir `specs/003-autenticacao-e-cadastro-de-anuncio/plan.md` e as tarefas marcadas como

@@ -15,6 +15,7 @@ Projeto avaliativo do curso de Tecnologia em Análise e Desenvolvimento de Siste
 * Objetivo, público, modalidade e decisões de produto em [`docs/produto.md`](docs/produto.md).
 * Estado atual e próximos passos em [`docs/estado.md`](docs/estado.md).
 * Design system (IHC): paleta, tipografia, espaçamento e acessibilidade em [`docs/design-system.md`](docs/design-system.md).
+* Kit de referência visual (tokens, guia de uso e exemplo de cada componente) em [`design-kit/`](design-kit/USO.md), para quem for implementar as telas das specs 003 e 004.
 * Divisão de tarefas da equipe (decisões pendentes e trabalho técnico) em [`tasks/README.md`](tasks/README.md).
 
 ---

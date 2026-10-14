@@ -12,6 +12,9 @@ já está especificada (spec.md, plan.md, tasks.md). As tarefas de autenticaçã
 entrar, sair) são suas: T001 (parte), T002 (parte), T003, T004, T009, T011, T014 (rotas de
 entrar/criar-conta), conforme marcado em `tasks.md`.
 
+Para as telas (T011), seguir [`design-kit/USO.md`](../../design-kit/USO.md) — tem o guia de voz,
+cor, tipografia e os componentes `TextField`, `Button` e `Logo` de referência.
+
 ## O que fazer
 
 Seguir `specs/003-autenticacao-e-cadastro-de-anuncio/plan.md` e as tarefas marcadas como
