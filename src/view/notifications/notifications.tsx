@@ -78,6 +78,13 @@ export default function Notifications({
           <Text style={styles.heroSubtitle}>
             Propostas, mensagens e avisos dos seus alertas.
           </Text>
+          {state.unreadCount > 0 ? (
+            <Text style={styles.unreadCounterBadge}>
+              {state.unreadCount === 1
+                ? "1 alerta pendente de leitura"
+                : `${state.unreadCount} alertas pendentes de leitura`}
+            </Text>
+          ) : null}
         </View>
         <View style={styles.filterBar}>
           <View accessibilityRole="tablist" style={styles.filterTabs}>
@@ -145,6 +152,14 @@ export default function Notifications({
                 ? "Você já visualizou todas as suas novidades!"
                 : "Suas mensagens, propostas e avisos de novos livros aparecerão aqui."}
             </Text>
+            {state.filter === "unread" && state.notifications.length > 0 ? (
+              <View style={styles.buttonWrapper}>
+                <FilledButton
+                  label="Ver todas as notificações"
+                  onPress={() => actions.setFilter("all")}
+                />
+              </View>
+            ) : null}
           </View>
         ) : (
           <SectionList
@@ -228,6 +243,12 @@ const styles = StyleSheet.create({
   heroSubtitle: {
     ...tokens.typography.bodyMedium,
     color: tokens.colors.secondaryText,
+  },
+  unreadCounterBadge: {
+    ...tokens.typography.labelMedium,
+    color: tokens.colors.actionDeep,
+    fontWeight: "600",
+    marginTop: tokens.spacing[4],
   },
   filterBar: {
     flexDirection: "row",

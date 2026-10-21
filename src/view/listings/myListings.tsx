@@ -48,7 +48,20 @@ export function MyListings({
 
   const listingBooks = state.books;
   const proposalBooks = state.books.filter((book) => book.status === "reserved");
-  const visibleBooks = activeTab === "proposals" ? proposalBooks : listingBooks;
+  const [statusFilter, setStatusFilter] = useState<"all" | "active" | "paused" | "closed">("all");
+
+  const booksInTab = activeTab === "proposals" ? proposalBooks : listingBooks;
+  const activeCount = booksInTab.filter((b) => b.status === "available").length;
+  const pausedCount = booksInTab.filter((b) => b.status === "paused").length;
+  const closedCount = booksInTab.filter((b) => b.status === "reserved").length;
+
+  const filteredBooks = booksInTab.filter((b) => {
+    if (statusFilter === "active") return b.status === "available";
+    if (statusFilter === "paused") return b.status === "paused";
+    if (statusFilter === "closed") return b.status === "reserved";
+    return true;
+  });
+
 
   return (
     <SafeAreaView style={styles.page}>
@@ -111,27 +124,67 @@ export function MyListings({
                     </Text>
                   </Pressable>
                 </View>
+                <View style={styles.filterRow}>
+                  {(
+                    [
+                      { key: "all", label: `Todos (${booksInTab.length})`, a11y: "Filtrar por Todos" },
+                      { key: "active", label: `Ativos (${activeCount})`, a11y: "Filtrar por Ativos" },
+                      { key: "paused", label: `Pausados (${pausedCount})`, a11y: "Filtrar por Pausados" },
+                      { key: "closed", label: `Concluídos (${closedCount})`, a11y: "Filtrar por Concluídos" },
+                    ] as const
+                  ).map((chip) => {
+                    const selected = statusFilter === chip.key;
+                    return (
+                      <Pressable
+                        key={chip.key}
+                        accessibilityRole="button"
+                        accessibilityLabel={chip.a11y}
+                        accessibilityState={{ selected }}
+                        onPress={() => setStatusFilter(chip.key)}
+                        style={[styles.filterChip, selected && styles.filterChipSelected]}
+                      >
+                        <Text style={[styles.filterChipText, selected && styles.filterChipTextSelected]}>
+                          {chip.label}
+                        </Text>
+                      </Pressable>
+                    );
+                  })}
+                </View>
               </>
             ) : null}
             <FlatList
-              data={visibleBooks}
+              data={filteredBooks}
+
               keyExtractor={(book) => book.id}
               contentContainerStyle={styles.list}
               ListEmptyComponent={
-                <View style={styles.empty}>
-                  <IconBadge icon="shelf" tone="neutral" />
-                  <Text style={styles.emptyHeadline}>Sua estante começa com um livro</Text>
-                  <Text style={styles.emptyTitle}>Você ainda não cadastrou nenhum anúncio.</Text>
-                  <Text style={styles.body}>
-                    Anuncie um livro para vender, trocar ou doar na sua região.
-                  </Text>
-                  <View style={styles.emptyAction}>
-                    <FilledButton
-                      label="Cadastrar anúncio"
-                      onPress={() => onNavigateToCreateListing?.()}
-                    />
+                state.books.length > 0 ? (
+                  <View style={styles.empty}>
+                    <IconBadge icon="shelf" tone="neutral" />
+                    <Text style={styles.emptyTitle}>Nenhum anúncio encontrado neste filtro.</Text>
+                    <View style={styles.emptyAction}>
+                      <FilledButton
+                        label="Ver todos os anúncios"
+                        onPress={() => setStatusFilter("all")}
+                      />
+                    </View>
                   </View>
-                </View>
+                ) : (
+                  <View style={styles.empty}>
+                    <IconBadge icon="shelf" tone="neutral" />
+                    <Text style={styles.emptyHeadline}>Sua estante começa com um livro</Text>
+                    <Text style={styles.emptyTitle}>Você ainda não cadastrou nenhum anúncio.</Text>
+                    <Text style={styles.body}>
+                      Anuncie um livro para vender, trocar ou doar na sua região.
+                    </Text>
+                    <View style={styles.emptyAction}>
+                      <FilledButton
+                        label="Cadastrar anúncio"
+                        onPress={() => onNavigateToCreateListing?.()}
+                      />
+                    </View>
+                  </View>
+                )
               }
               renderItem={({ item }) => {
                 const extraMeta = [
@@ -363,6 +416,34 @@ const styles = StyleSheet.create({
   heroHeader: {
     marginTop: tokens.spacing[12],
     gap: tokens.spacing[4],
+  },
+  filterRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: tokens.spacing[8],
+    marginTop: tokens.spacing[8],
+  },
+  filterChip: {
+    minHeight: tokens.accessibility.touchTarget,
+    justifyContent: "center",
+    paddingHorizontal: tokens.spacing[12],
+    paddingVertical: tokens.spacing[6],
+    borderRadius: tokens.radius.full,
+    backgroundColor: tokens.colors.surface,
+    borderWidth: 1,
+    borderColor: tokens.colors.m3.outlineVariant,
+  },
+  filterChipSelected: {
+    backgroundColor: tokens.colors.action,
+    borderColor: tokens.colors.action,
+  },
+  filterChipText: {
+    ...tokens.typography.labelMedium,
+    color: tokens.colors.text,
+  },
+  filterChipTextSelected: {
+    color: tokens.colors.surface,
+    fontWeight: "600",
   },
   heroHeadline: {
     fontSize: tokens.typography.displayLarge.fontSize,

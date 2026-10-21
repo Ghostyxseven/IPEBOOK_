@@ -2,7 +2,21 @@ import { describe, expect, it } from "vitest";
 import type { AppNotification } from "@/model/entities/notification";
 import { groupNotificationsByPeriod, periodOf } from "@/viewmodel/notificationGrouping";
 
-const AGORA = new Date("2026-10-20T15:00:00-03:00");
+// As datas são construídas no fuso local do processo, e não com um deslocamento fixo,
+// para que o resultado não mude entre a máquina de quem desenvolve e a CI (que roda em UTC).
+const AGORA = new Date(2026, 9, 20, 15, 0, 0);
+
+/** Data no fuso local, `dias` antes de AGORA, no horário indicado. */
+function diasAtras(dias: number, hora = 10, minuto = 0): string {
+  const data = new Date(
+    AGORA.getFullYear(),
+    AGORA.getMonth(),
+    AGORA.getDate() - dias,
+    hora,
+    minuto,
+  );
+  return data.toISOString();
+}
 
 function notificacao(id: string, createdAt: string): AppNotification {
   return {
@@ -18,18 +32,18 @@ function notificacao(id: string, createdAt: string): AppNotification {
 
 describe("periodOf", () => {
   it("classifica como Hoje qualquer horário do dia corrente", () => {
-    expect(periodOf("2026-10-20T00:10:00-03:00", AGORA)).toBe("today");
-    expect(periodOf("2026-10-20T23:50:00-03:00", AGORA)).toBe("today");
+    expect(periodOf(diasAtras(0, 0, 10), AGORA)).toBe("today");
+    expect(periodOf(diasAtras(0, 23, 50), AGORA)).toBe("today");
   });
 
   it("classifica os seis dias anteriores como Esta semana", () => {
-    expect(periodOf("2026-10-19T22:00:00-03:00", AGORA)).toBe("week");
-    expect(periodOf("2026-10-14T08:00:00-03:00", AGORA)).toBe("week");
+    expect(periodOf(diasAtras(1, 22), AGORA)).toBe("week");
+    expect(periodOf(diasAtras(6, 8), AGORA)).toBe("week");
   });
 
   it("classifica o sétimo dia anterior e os mais antigos como Antes", () => {
-    expect(periodOf("2026-10-13T23:00:00-03:00", AGORA)).toBe("earlier");
-    expect(periodOf("2026-01-02T10:00:00-03:00", AGORA)).toBe("earlier");
+    expect(periodOf(diasAtras(7, 23), AGORA)).toBe("earlier");
+    expect(periodOf(diasAtras(290), AGORA)).toBe("earlier");
   });
 
   it("trata data inválida como Antes em vez de quebrar a lista", () => {
@@ -41,9 +55,9 @@ describe("groupNotificationsByPeriod", () => {
   it("agrupa na ordem Hoje, Esta semana e Antes com os títulos do Figma 07.04", () => {
     const secoes = groupNotificationsByPeriod(
       [
-        notificacao("antiga", "2026-09-01T10:00:00-03:00"),
-        notificacao("hoje", "2026-10-20T09:00:00-03:00"),
-        notificacao("semana", "2026-10-17T09:00:00-03:00"),
+        notificacao("antiga", diasAtras(49)),
+        notificacao("hoje", diasAtras(0, 9)),
+        notificacao("semana", diasAtras(3, 9)),
       ],
       AGORA,
     );
@@ -57,8 +71,8 @@ describe("groupNotificationsByPeriod", () => {
   it("preserva a ordem recebida dentro de cada período", () => {
     const secoes = groupNotificationsByPeriod(
       [
-        notificacao("a", "2026-10-20T08:00:00-03:00"),
-        notificacao("b", "2026-10-20T12:00:00-03:00"),
+        notificacao("a", diasAtras(0, 8)),
+        notificacao("b", diasAtras(0, 12)),
       ],
       AGORA,
     );
@@ -68,7 +82,7 @@ describe("groupNotificationsByPeriod", () => {
   });
 
   it("omite períodos sem notificações", () => {
-    const secoes = groupNotificationsByPeriod([notificacao("a", "2026-10-18T08:00:00-03:00")], AGORA);
+    const secoes = groupNotificationsByPeriod([notificacao("a", diasAtras(2, 8))], AGORA);
 
     expect(secoes.map((secao) => secao.period)).toEqual(["week"]);
   });

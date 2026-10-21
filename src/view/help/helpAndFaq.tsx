@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FAQ_ITEMS } from "@/model/helpContent";
+import { FilledButton } from "@/view/components/FilledButton";
 import { IconBadge } from "@/view/components/IconBadge";
 import { OutlinedButton } from "@/view/components/OutlinedButton";
+import { TextField } from "@/view/components/TextField";
 import { TopAppBar } from "@/view/components/TopAppBar";
 import { tokens } from "@/view/tokens";
 
@@ -22,18 +24,39 @@ const CATEGORIES: { key: CategoryFilter; label: string }[] = [
   { key: "suporte", label: "Suporte e Contato" },
 ];
 
+function normalizeSearchText(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
 /**
  * Figma `09.01 · Ajuda` (`145:2702` / Web `370:17541`).
  */
 export default function HelpAndFaq({ onBack, onOpenConversations }: HelpAndFaqProps) {
   const [filter, setFilter] = useState<CategoryFilter>("todos");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const normalizedQuery = normalizeSearchText(searchQuery);
 
   const filteredItems = FAQ_ITEMS.filter((item) => {
-    if (filter === "todos") return true;
-    if (filter === "seguranca") return item.category === "seguranca";
-    if (filter === "regras") return item.category === "regras" || item.category === "funcionamento";
-    if (filter === "suporte") return item.category === "suporte";
-    return true;
+    const matchesCategory =
+      filter === "todos"
+        ? true
+        : filter === "seguranca"
+          ? item.category === "seguranca"
+          : filter === "regras"
+            ? item.category === "regras" || item.category === "funcionamento"
+            : item.category === "suporte";
+
+    if (!matchesCategory) return false;
+    if (!normalizedQuery) return true;
+
+    const inQuestion = normalizeSearchText(item.question).includes(normalizedQuery);
+    const inAnswer = normalizeSearchText(item.answer).includes(normalizedQuery);
+    return inQuestion || inAnswer;
   });
 
   return (
@@ -57,6 +80,13 @@ export default function HelpAndFaq({ onBack, onOpenConversations }: HelpAndFaqPr
             </Text>
           </View>
 
+          <TextField
+            label="Buscar dúvida"
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            placeholder="Ex: ponto de encontro, doação, senha..."
+          />
+
           <View style={styles.filterContainer}>
             {CATEGORIES.map((cat) => {
               const isSelected = filter === cat.key;
@@ -77,12 +107,28 @@ export default function HelpAndFaq({ onBack, onOpenConversations }: HelpAndFaqPr
           </View>
 
           <View style={styles.list}>
-            {filteredItems.map((item) => (
-              <View key={item.id} style={styles.faqCard}>
-                <Text style={styles.question}>{item.question}</Text>
-                <Text style={styles.answer}>{item.answer}</Text>
+            {filteredItems.length === 0 ? (
+              <View style={styles.emptyCard}>
+                <Text style={styles.question}>Nenhuma dúvida encontrada para sua busca.</Text>
+                <Text style={styles.answer}>
+                  Tente buscar por outra palavra-chave ou limpe o filtro ativo.
+                </Text>
+                <FilledButton
+                  label="Limpar busca"
+                  onPress={() => {
+                    setSearchQuery("");
+                    setFilter("todos");
+                  }}
+                />
               </View>
-            ))}
+            ) : (
+              filteredItems.map((item) => (
+                <View key={item.id} style={styles.faqCard}>
+                  <Text style={styles.question}>{item.question}</Text>
+                  <Text style={styles.answer}>{item.answer}</Text>
+                </View>
+              ))
+            )}
           </View>
 
           {onOpenConversations ? (
@@ -175,6 +221,15 @@ const styles = StyleSheet.create({
   },
   footerAction: {
     paddingTop: tokens.spacing[24],
+  },
+  emptyCard: {
+    backgroundColor: tokens.colors.m3.surfaceContainerLow,
+    borderRadius: tokens.radius.medium,
+    padding: tokens.spacing[20],
+    borderWidth: 1,
+    borderColor: tokens.colors.m3.outlineVariant,
+    gap: tokens.spacing[12],
+    alignItems: "center",
   },
   faqCard: {
     backgroundColor: tokens.colors.m3.surfaceContainerLow,
