@@ -1,4 +1,4 @@
-# Spec 038 — Alinhamento fino das telas do Micael ao Figma
+# Spec 039 — Alinhamento fino das telas do Micael ao Figma
 
 **Responsável:** Micael Cardoso Reis (`pessoa:micael`)
 **Data:** 21 de outubro de 2026

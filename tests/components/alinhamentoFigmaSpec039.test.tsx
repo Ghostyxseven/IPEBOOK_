@@ -5,7 +5,7 @@ import Notifications from "@/view/notifications/notifications";
 import ResetPassword from "@/view/auth/resetPassword";
 import SearchAlerts from "@/view/search/searchAlerts";
 
-describe("Spec 038 — alinhamento fino das telas do Micael ao Figma", () => {
+describe("Spec 039 — alinhamento fino das telas do Micael ao Figma", () => {
   it("mostra o cartão do alerta ativo com a frase da busca (02.07)", async () => {
     let screen!: Awaited<ReturnType<typeof render>>;
     await act(async () => {

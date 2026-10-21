@@ -69,7 +69,7 @@ describe("Favorites alinhada ao Figma 02.06 (Spec 030)", () => {
     });
 
     expect(screen.getByText("Livros (1)")).toBeDefined();
-    // Spec 038 (RN-03): a aba "Alertas" também mostra a contagem, como em `02.06`.
+    // Spec 039 (RN-03): a aba "Alertas" também mostra a contagem, como em `02.06`.
     expect(screen.getByText("Alertas (0)")).toBeDefined();
   });
 

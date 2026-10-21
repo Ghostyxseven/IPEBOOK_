@@ -57,7 +57,7 @@ describe("tela de Meus Anúncios (ISO/IEC 25010 - Usabilidade e Acessibilidade)"
     expect(screen.getByRole("header").props.children).toBe("Minha estante");
   });
 
-  it("não acrescenta manchete e mostra a dica depois da lista (Spec 038, Figma 05.01)", async () => {
+  it("não acrescenta manchete e mostra a dica depois da lista (Spec 039, Figma 05.01)", async () => {
     const book: Book = {
       id: "b-038",
       title: "Dom Casmurro",
