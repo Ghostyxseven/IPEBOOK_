@@ -5,6 +5,7 @@ import { useAuthViewModel } from "@/viewmodel/useAuthViewModel";
 import { useMyListingsViewModel } from "@/viewmodel/useMyListingsViewModel";
 import { useNetworkStatus } from "@/viewmodel/useNetworkStatus";
 import { tokens } from "@/view/tokens";
+import { AppIcon } from "@/view/components/AppIcon";
 import { BookCover } from "@/view/components/BookCover";
 import { Dialog } from "@/view/components/Dialog";
 import { ErrorState } from "@/view/components/ErrorState";
@@ -43,10 +44,15 @@ export function MyListings({
   const { isOnline } = useNetworkStatus();
   const [listingToDelete, setListingToDelete] = useState<Book | null>(null);
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"listings" | "proposals">("listings");
+
+  const listingBooks = state.books;
+  const proposalBooks = state.books.filter((book) => book.status === "reserved");
+  const visibleBooks = activeTab === "proposals" ? proposalBooks : listingBooks;
 
   return (
     <SafeAreaView style={styles.page}>
-      <TopAppBar title="Meus anúncios" onBack={() => onBack?.()} />
+      <TopAppBar title="Minha estante" onBack={() => onBack?.()} />
       <View style={styles.content}>
         {state.loading ? (
           <LoadingState label="Carregando seus anúncios" />
@@ -76,15 +82,39 @@ export function MyListings({
               </Text>
             ) : null}
             {state.books.length > 0 ? (
-              <View style={styles.heroHeader}>
-                <Text style={styles.heroHeadline}>Cada livro, uma conversa.</Text>
-                <Text style={styles.orientationHint}>
-                  Toque em um livro para editar, pausar ou marcar como concluído.
-                </Text>
-              </View>
+              <>
+                <View style={styles.heroHeader}>
+                  <Text style={styles.heroHeadline}>Cada livro, uma conversa.</Text>
+                  <Text style={styles.orientationHint}>
+                    Toque em um livro para editar, pausar ou marcar como concluído.
+                  </Text>
+                </View>
+                <View testID="my-listings-tablist" accessibilityRole="tablist" style={styles.tabs}>
+                  <Pressable
+                    accessibilityRole="tab"
+                    accessibilityState={{ selected: activeTab === "listings" }}
+                    onPress={() => setActiveTab("listings")}
+                    style={[styles.tab, activeTab === "listings" && styles.activeTab]}
+                  >
+                    <Text style={[styles.tabText, activeTab === "listings" && styles.activeTabText]}>
+                      {`Anúncios (${listingBooks.length})`}
+                    </Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="tab"
+                    accessibilityState={{ selected: activeTab === "proposals" }}
+                    onPress={() => setActiveTab("proposals")}
+                    style={[styles.tab, activeTab === "proposals" && styles.activeTab]}
+                  >
+                    <Text style={[styles.tabText, activeTab === "proposals" && styles.activeTabText]}>
+                      {`Propostas (${proposalBooks.length})`}
+                    </Text>
+                  </Pressable>
+                </View>
+              </>
             ) : null}
             <FlatList
-              data={state.books}
+              data={visibleBooks}
               keyExtractor={(book) => book.id}
               contentContainerStyle={styles.list}
               ListEmptyComponent={
@@ -204,6 +234,17 @@ export function MyListings({
           </>
         )}
       </View>
+      {state.books.length > 0 && onNavigateToCreateListing ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Anunciar livro"
+          onPress={onNavigateToCreateListing}
+          style={styles.fab}
+        >
+          <AppIcon name="add" size={20} color={tokens.colors.m3.onSecondaryContainer} />
+          <Text style={styles.fabText}>Anunciar livro</Text>
+        </Pressable>
+      ) : null}
       <Dialog
         visible={listingToDelete !== null}
         title="Excluir anúncio?"
@@ -271,6 +312,43 @@ export default function MyListingsScreen({
 }
 
 const styles = StyleSheet.create({
+  tabs: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: tokens.colors.m3.outlineVariant,
+    marginBottom: tokens.spacing[16],
+  },
+  tab: {
+    flex: 1,
+    minHeight: tokens.accessibility.touchTarget,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: tokens.spacing[16],
+    borderBottomWidth: 2,
+    borderBottomColor: "transparent",
+  },
+  activeTab: { borderBottomColor: tokens.colors.action },
+  tabText: {
+    ...tokens.typography.bodyMedium,
+    color: tokens.colors.secondaryText,
+  },
+  activeTabText: { color: tokens.colors.action, fontWeight: "600" },
+  fab: {
+    position: "absolute",
+    right: tokens.spacing[16],
+    bottom: tokens.spacing[24],
+    flexDirection: "row",
+    alignItems: "center",
+    gap: tokens.spacing[8],
+    minHeight: tokens.accessibility.touchTarget,
+    paddingHorizontal: tokens.spacing[20],
+    borderRadius: tokens.radius.large,
+    backgroundColor: tokens.colors.m3.secondaryContainer,
+  },
+  fabText: {
+    ...tokens.typography.labelMedium,
+    color: tokens.colors.m3.onSecondaryContainer,
+  },
   page: { flex: 1, backgroundColor: tokens.colors.background },
   content: { flex: 1, width: "100%", maxWidth: 720, alignSelf: "center", paddingHorizontal: tokens.spacing[16] },
   body: {

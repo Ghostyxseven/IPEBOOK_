@@ -76,4 +76,18 @@ describe("tela de Central de Ajuda e FAQ (HelpAndFaq)", () => {
     });
     expect(onBack).toHaveBeenCalledTimes(1);
   });
+
+  it("abre as conversas pelo botão de rodapé (Figma 09.01, Spec 032)", async () => {
+    const onOpenConversations = vi.fn();
+    let screen!: Awaited<ReturnType<typeof render>>;
+    await act(async () => {
+      screen = await render(<HelpAndFaq onBack={() => {}} onOpenConversations={onOpenConversations} />);
+    });
+
+    await act(async () => {
+      fireEvent.press(screen.getByLabelText("Abrir conversas: suas negociações em andamento"));
+    });
+
+    expect(onOpenConversations).toHaveBeenCalledTimes(1);
+  });
 });
