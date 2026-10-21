@@ -1,4 +1,4 @@
-# Validação: Estados do fluxo de acesso (Spec 032 / Issue #97)
+# Validação: Estados do fluxo de acesso (Spec 033 / Issue #97)
 
 Data: 2026-10-21.
 

@@ -1,4 +1,4 @@
-# Tarefas: Estados do fluxo de acesso (Spec 032 / Issue #97)
+# Tarefas: Estados do fluxo de acesso (Spec 033 / Issue #97)
 
 - [x] T001 Criar `EmailAlreadyRegisteredError` e `ExpiredLinkError` em `src/model/errors.ts`
       (ambos `extends AuthError`, preservando compatibilidade com código existente que captura

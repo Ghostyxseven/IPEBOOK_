@@ -1,4 +1,4 @@
-# Spec 032 — Estados do fluxo de acesso
+# Spec 033 — Estados do fluxo de acesso
 
 **Responsável:** Maria Clara Almeida Martins
 **Issue:** #97
