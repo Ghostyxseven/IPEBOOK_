@@ -2,7 +2,12 @@
 
 Documento consolidado de continuidade técnica e produto do Ipebook (Piripiri, PI).
 
-Conferência atual: **2026-10-21** (branch `feature/143-galeria-swipe-teclado`, derivada de `develop`).
+Conferência atual: **2026-10-21** (branch `feature/145-compartilhar-whatsapp`, derivada de `develop`).
+
+**Spec 040 validada localmente:** compartilhamento de anúncio ganhou mensagem formatada (título,
+autor, modalidade e preço quando venda) e botão dedicado "Compartilhar no WhatsApp" em
+`BookDetail`, com fallback para o menu nativo de compartilhamento quando o WhatsApp não está
+instalado e para a Web Share API/cópia de texto na Web. `npm run validate` passou.
 
 **Spec 038 validada localmente:** `PhotoGallery` (`src/view/listings/photoGallery.tsx`) passou a usar
 `FlatList` horizontal paginada para swipe lateral, com botões Anterior/Próxima sincronizados,
