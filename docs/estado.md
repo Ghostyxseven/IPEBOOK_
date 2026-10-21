@@ -2,23 +2,18 @@
 
 Documento consolidado de continuidade técnica e produto do Ipebook (Piripiri, PI).
 
-Conferência atual: **2026-10-21** (branch `feature/143-galeria-swipe-teclado`, derivada de `develop`).
+Conferência atual: **2026-10-21** (branch `feature/perfil-hub-fluxo-07`, derivada de `develop`).
 
-**Spec 039 validada localmente:** nova conferência nó a nó do canvas `APP · 10 · Android · Material 3`
-pelo MCP do Figma corrigiu oito telas do Micael: `/entrar`, `/criar-conta` e `/redefinir-senha`
-deixaram o enquadramento em cartão e passaram ao conteúdo sobre o fundo alinhado ao topo, como
-`/esqueci-senha`; `/favoritos` ganhou contagem na aba "Alertas" e ícone do design system no
-desfavoritar; `/alertas` ganhou o cartão "Alerta ativo" e o ícone de sino na linha; `/meus-anuncios`
-e `/notificacoes` perderam manchetes que o Figma não desenha, com a dica da estante movida para
-depois da lista e seta de avanço nas notificações; `/excluir-conta` separou os dois blocos de
-privacidade, corrigiu a copy que citava telefone e reduziu a portabilidade à ação de rodapé.
-`npm run validate` passou com 803 testes em 116 arquivos, já com `develop` integrado (Spec 038 da
-galeria e métricas da beta). As diferenças que dependem de recursos
-inexistentes (OAuth Google, ISBN pela câmera, rascunhos, "marcar como concluído", conversas) estão
-listadas em `specs/039-alinhamento-fino-telas-micael/spec.md`. Conferência no aparelho via ADB
-pendente.
+**Spec 039 validada localmente:** `/perfil` deixou de abrir direto o formulário de edição e passou a
+ser o hub "Meu perfil" (Figma `07.01`): avatar, estatísticas e menu para Editar perfil (`/perfil/editar`),
+Avaliações recebidas (`/perfil/avaliacoes`, novo caso de uso `RatingUseCases`), Notificações,
+Segurança e verificação (`/perfil/seguranca`, novo — envia link de redefinição de senha),
+Privacidade e dados (linkado à tela já existente `/excluir-conta`), Termos, Ajuda e Sair da conta
+(com diálogo de confirmação). Pessoas bloqueadas (`07.10`–`07.12`) ficou fora por exigir
+infraestrutura nova (migração/RLS) — spec e PR separados. `npm run validate` passou com 803 testes
+em 119 arquivos.
 
-**Spec 038 (galeria) validada localmente:** `PhotoGallery` (`src/view/listings/photoGallery.tsx`) passou a usar
+**Spec 038 validada localmente:** `PhotoGallery` (`src/view/listings/photoGallery.tsx`) passou a usar
 `FlatList` horizontal paginada para swipe lateral, com botões Anterior/Próxima sincronizados,
 indicador "Foto X de Y", rótulo de acessibilidade próprio por foto e navegação por teclado na Web
 (`ArrowRight`/`ArrowLeft`/`Esc`, mesmo padrão de `Dialog.tsx`). `npm run validate` passou com 784
