@@ -2,7 +2,16 @@
 
 Documento consolidado de continuidade técnica e produto do Ipebook (Piripiri, PI).
 
-Conferência atual: **2026-10-21** (branch `feature/143-galeria-swipe-teclado`, derivada de `develop`).
+Conferência atual: **2026-10-21** (branch `feature/perfil-hub-fluxo-07`, derivada de `develop`).
+
+**Spec 039 validada localmente:** `/perfil` deixou de abrir direto o formulário de edição e passou a
+ser o hub "Meu perfil" (Figma `07.01`): avatar, estatísticas e menu para Editar perfil (`/perfil/editar`),
+Avaliações recebidas (`/perfil/avaliacoes`, novo caso de uso `RatingUseCases`), Notificações,
+Segurança e verificação (`/perfil/seguranca`, novo — envia link de redefinição de senha),
+Privacidade e dados (linkado à tela já existente `/excluir-conta`), Termos, Ajuda e Sair da conta
+(com diálogo de confirmação). Pessoas bloqueadas (`07.10`–`07.12`) ficou fora por exigir
+infraestrutura nova (migração/RLS) — spec e PR separados. `npm run validate` passou com 803 testes
+em 119 arquivos.
 
 **Spec 038 validada localmente:** `PhotoGallery` (`src/view/listings/photoGallery.tsx`) passou a usar
 `FlatList` horizontal paginada para swipe lateral, com botões Anterior/Próxima sincronizados,
