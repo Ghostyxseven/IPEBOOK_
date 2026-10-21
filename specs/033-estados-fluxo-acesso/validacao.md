@@ -26,8 +26,9 @@ Data: 2026-10-21.
 - `npm run typecheck`: limpo.
 - `npm run check:architecture`: 209 arquivos verificados, sem violações de camada.
 - `npm run test:sql`: sem regressão (esta entrega não altera migrações).
-- `npm run test:coverage`: **729 testes passando em 109 arquivos**, cobertura acima de 80% nas
-  4 dimensões (Statements 89,74%, Branches 82,16%, Functions 86,5%, Lines 91,15%).
+- `npm run test:coverage`: **749 testes passando em 110 arquivos** (após sincronizar com
+  `develop`, que avançou com outras entregas em paralelo), cobertura acima de 80% nas 4
+  dimensões (Statements 90,07%, Branches 82,89%, Functions 86,92%, Lines 91,51%).
 - `npm run build:web`: build concluído.
 
 ## Testes novos/alterados
