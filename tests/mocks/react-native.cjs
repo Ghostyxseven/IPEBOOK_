@@ -142,11 +142,49 @@ const StyleSheet = {
 const AccessibilityInfo = {
   isScreenReaderEnabled: () => Promise.resolve(false),
   addEventListener: () => ({ remove: () => {} }),
+  announceForAccessibility: () => {},
 };
 
 const Platform = {
   OS: "ios",
   select: (obj) => obj.ios || obj.default,
+};
+
+class MockAnimatedValue {
+  constructor(v) {
+    this.value = v;
+  }
+  setValue(v) {
+    this.value = v;
+  }
+  interpolate() {
+    return this;
+  }
+}
+
+const Animated = {
+  Value: MockAnimatedValue,
+  timing: (_value, _config) => ({
+    start: (cb) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  loop: (_anim) => ({
+    start: (cb) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  sequence: (_anims) => ({
+    start: (cb) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  View: React.forwardRef((props, ref) =>
+    React.createElement("View", { ...props, ref }, props.children)
+  ),
 };
 
 module.exports = {
@@ -163,6 +201,7 @@ module.exports = {
   StyleSheet,
   AccessibilityInfo,
   Platform,
+  Animated,
   default: {
     View,
     Text,
@@ -177,5 +216,6 @@ module.exports = {
     StyleSheet,
     AccessibilityInfo,
     Platform,
+    Animated,
   },
 };
