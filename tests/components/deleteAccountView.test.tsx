@@ -1,5 +1,6 @@
 import React from "react";
 import { act, fireEvent, render } from "@testing-library/react-native";
+import { AccessibilityInfo } from "react-native";
 import { describe, expect, it, vi } from "vitest";
 import DeleteAccount from "@/view/auth/deleteAccount";
 import DeleteAccountScreen from "@/view/auth/deleteAccountScreen";
@@ -93,7 +94,8 @@ describe("tela de exclusão de conta (DeleteAccount - LGPD)", () => {
       );
     });
 
-    expect(screen.getByRole("header", { name: "Portabilidade de dados (LGPD)" })).toBeDefined();
+    // Spec 039 (RN-08): `07.07` reduz a portabilidade à ação de rodapé; o rótulo acessível do
+    // botão é o que identifica a exportação, no lugar do cabeçalho de seção.
     const downloadBtn = screen.getByRole("button", { name: "Baixar meus dados pessoais em formato JSON" });
     expect(downloadBtn).toBeDefined();
     await act(async () => {
@@ -163,5 +165,27 @@ describe("tela de exclusão de conta (DeleteAccount - LGPD)", () => {
     });
 
     expect(onEditProfile).toHaveBeenCalledTimes(1);
+  });
+
+  it("anuncia e foca o erro ao tentar excluir sem marcar a confirmação (Spec 042 / Issue #147)", async () => {
+    const announceSpy = vi.spyOn(AccessibilityInfo, "announceForAccessibility");
+    let screen!: Awaited<ReturnType<typeof render>>;
+
+    await act(async () => {
+      screen = await render(
+        <DeleteAccount sessionUserId="user-1" onBack={() => {}} onAccountDeleted={() => {}} />,
+      );
+    });
+
+    const submitBtn = screen.getByRole("button", { name: "Confirmar e excluir minha conta" });
+    await act(async () => {
+      fireEvent.press(submitBtn);
+    });
+
+    const errorText = screen.getByRole("alert");
+    expect(errorText.props.accessibilityLiveRegion).toBe("assertive");
+    expect(announceSpy).toHaveBeenCalledWith(errorText.props.children);
+
+    announceSpy.mockRestore();
   });
 });

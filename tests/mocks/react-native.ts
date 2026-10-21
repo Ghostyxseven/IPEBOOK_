@@ -142,6 +142,7 @@ export const StyleSheet = {
 export const AccessibilityInfo = {
   isScreenReaderEnabled: () => Promise.resolve(false),
   addEventListener: () => ({ remove: () => {} }),
+  announceForAccessibility: (_message: string) => {},
 };
 
 export const Platform = {
@@ -152,6 +153,44 @@ export const Platform = {
 export const Share = {
   share: (_content: { message?: string; url?: string; title?: string }) =>
     Promise.resolve({ action: "sharedAction" }),
+};
+
+class MockAnimatedValue {
+  value: number;
+  constructor(v: number) {
+    this.value = v;
+  }
+  setValue(v: number) {
+    this.value = v;
+  }
+  interpolate() {
+    return this;
+  }
+}
+
+export const Animated = {
+  Value: MockAnimatedValue,
+  timing: (_value: any, _config: any) => ({
+    start: (cb?: (result: { finished: boolean }) => void) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  loop: (_anim: any) => ({
+    start: (cb?: (result: { finished: boolean }) => void) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  sequence: (_anims: any[]) => ({
+    start: (cb?: (result: { finished: boolean }) => void) => {
+      if (cb) cb({ finished: true });
+    },
+    stop: () => {},
+  }),
+  View: React.forwardRef<any, any>((props, ref) =>
+    React.createElement("View", { ...props, ref }, props.children)
+  ),
 };
 
 export default {
@@ -169,4 +208,5 @@ export default {
   AccessibilityInfo,
   Platform,
   Share,
+  Animated,
 };

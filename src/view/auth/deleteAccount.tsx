@@ -5,6 +5,7 @@ import { FilledButton } from "@/view/components/FilledButton";
 import { IconBadge } from "@/view/components/IconBadge";
 import { TopAppBar } from "@/view/components/TopAppBar";
 import { tokens } from "@/view/tokens";
+import { useFormErrorAnnouncer } from "@/view/useFormErrorAnnouncer";
 import { useDeleteAccountViewModel } from "@/viewmodel/useDeleteAccountViewModel";
 
 export type DeleteAccountProps = {
@@ -30,6 +31,8 @@ export default function DeleteAccount({
   onEditProfile,
 }: DeleteAccountProps) {
   const [state, actions] = useDeleteAccountViewModel();
+  const exportErrorRef = useFormErrorAnnouncer(state.exportError);
+  const errorRef = useFormErrorAnnouncer(state.error);
 
   if (state.success) {
     return (
@@ -99,9 +102,12 @@ export default function DeleteAccount({
             <Text style={styles.exportText}>
               Nome, cidade, anúncios e avaliações ajudam a comunidade a conhecer você.
             </Text>
+          </View>
+
+          <View style={styles.privacyInfoCard}>
             <Text style={styles.privacyInfoTitle}>Dados de acesso privados</Text>
             <Text style={styles.exportText}>
-              Seu telefone e e-mail não aparecem no perfil público nem nos anúncios.
+              Seu e-mail não aparece no perfil público nem nos anúncios.
             </Text>
           </View>
 
@@ -122,12 +128,6 @@ export default function DeleteAccount({
           ) : null}
 
           <View style={styles.exportSection}>
-            <Text accessibilityRole="header" style={styles.exportTitle}>
-              Portabilidade de dados (LGPD)
-            </Text>
-            <Text style={styles.exportText}>
-              Baixe uma cópia dos seus anúncios, pedidos e dados cadastrais em formato JSON.
-            </Text>
             {state.exportSuccess ? (
               <View style={styles.exportSummaryBox}>
                 <Text accessibilityRole="alert" style={styles.exportSuccessText}>
@@ -143,7 +143,12 @@ export default function DeleteAccount({
               </View>
             ) : null}
             {state.exportError ? (
-              <Text accessibilityRole="alert" style={styles.errorText}>
+              <Text
+                ref={exportErrorRef}
+                accessibilityRole="alert"
+                accessibilityLiveRegion="assertive"
+                style={styles.errorText}
+              >
                 {state.exportError}
               </Text>
             ) : null}
@@ -181,7 +186,12 @@ export default function DeleteAccount({
           />
 
           {state.error ? (
-            <Text accessibilityRole="alert" style={styles.errorText}>
+            <Text
+              ref={errorRef}
+              accessibilityRole="alert"
+              accessibilityLiveRegion="assertive"
+              style={styles.errorText}
+            >
               {state.error}
             </Text>
           ) : null}
@@ -302,11 +312,6 @@ const styles = StyleSheet.create({
   exportSection: {
     gap: tokens.spacing[12],
     paddingTop: tokens.spacing[8],
-  },
-  exportTitle: {
-    ...tokens.typography.titleMedium,
-    fontFamily: tokens.typography.displayLarge.fontFamily,
-    color: tokens.colors.action,
   },
   exportText: {
     ...tokens.typography.bodyMedium,
