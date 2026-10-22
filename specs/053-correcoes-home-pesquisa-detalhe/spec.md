@@ -87,8 +87,18 @@ Deslogado, o CA-03 sempre cai no rótulo genérico. Isso **resolve o vazamento d
 mas exibir o nome real de quem anunciou depende de revisar a política de RLS dessa tabela —
 trabalho de backend, fora do escopo desta spec.
 
-## Fora do escopo
+## Integração com a Spec 045 (tema escuro em todo o app)
 
-O tema escuro continua limitado à Home e aos componentes migrados na Spec 044 — as demais telas
-seguem em tema claro fixo até as issues de acompanhamento, como aquela spec já previa. Isso é
-backlog planejado, não defeito.
+Durante esta entrega, o PR #195 concluiu em `develop` a migração do tema escuro para as ~47 telas
+restantes — justamente o item que esta spec havia classificado como backlog. Como ele tocou
+`search.tsx` e `bookDetail.tsx`, houve conflito, resolvido preservando as duas mudanças:
+
+- `search.tsx`: mantida a `createStyles(colors)` da Spec 045 e, dentro dela, o `content` com
+  `flexGrow` (o que permite a rolagem) e o `filters` com o `gap` que saiu do container. O estilo
+  `list` ficou órfão com a migração para `ListHeaderComponent` e foi removido.
+- `bookDetail.tsx`: o merge automático deixou o `OwnerLink` referenciando o `styles` do módulo,
+  que a Spec 045 passou a criar dentro do componente — um defeito que o merge introduziria em
+  silêncio. O `OwnerLink` passou a resolver o próprio tema com `useTheme` + `createStyles`.
+
+Resultado: Pesquisa e Detalhe têm tema escuro **e** rolagem ao mesmo tempo. O item "tema escuro
+parcial", levantado na análise original, deixa de existir.
