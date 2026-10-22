@@ -8,8 +8,8 @@ Conferência atual: **2026-10-22** (branch `feature/relaxed-thompson-60m08j`, de
 (Figma `06.04`, `06.05`, `06.11`–`06.14`): convite com local entre os pontos seguros, dia nos próximos
 sete dias e faixa de horário; confirmação só pela outra pessoa; reagendamento que volta a aguardar
 confirmação; cancelamento com diálogo; aviso `meeting_update` a cada mudança. Nova tabela
-`v2_meetings` com RLS e gatilhos (ADR 0036). `npm run validate` passou com 931 testes em 133
-arquivos; fluxo completo conferido com dois usuários no app compilado para a Web
+`v2_meetings` com RLS e gatilhos (ADR 0036). `npm run validate` passou com 1006 testes em 143
+arquivos, já sobre o `develop` com tema escuro e service worker; fluxo completo conferido com dois usuários no app compilado para a Web
 (`specs/044-combinar-encontro/validacao.md`). Supabase remoto: aplicadas em 2026-10-22 as
 migrações `202610200007`, `202610200008`, `202610210001` e `202610210002`; ainda pendentes a remoção
 das duas políticas substituídas pela `202610200008` e a `202610220001_encontros.sql`, que exigem
