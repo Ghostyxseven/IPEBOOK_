@@ -1,6 +1,6 @@
 /**
  * Script de Diagnóstico de Saúde e Verificação de Migrações do Supabase Remoto
- * Issue #177 / Spec 039 / ADR 0033
+ * Issue #177 / Spec 049 / ADR 0033
  *
  * Inspeciona a conectividade, existência de tabelas, integridade de colunas,
  * disponibilidade do Supabase Storage e funções RPC no backend remoto do Supabase,
@@ -194,6 +194,11 @@ export const TABELAS_CRITICAS = {
     nome: 'v2_user_preferences',
     descricao: 'Preferências privadas de notificação e contato',
     colunas: ['user_id', 'email_notifications', 'notify_new_matches', 'notify_request_updates', 'phone_visible', 'updated_at'],
+  },
+  v2_meetings: {
+    nome: 'v2_meetings',
+    descricao: 'Encontros combinados nas negociações aceitas (Spec 052)',
+    colunas: ['id', 'request_id', 'point_name', 'scheduled_at', 'proposed_by', 'status', 'created_at', 'updated_at'],
   },
 };
 
@@ -525,6 +530,11 @@ export const MAPEAMENTO_MIGRACOES = {
     validar: (ctx) => ctx.tabelas.v2_search_alerts?.colunasValidas.includes('modalities'),
     detalhe: 'Coluna modalities em public.v2_search_alerts',
   },
+  '202610220001_encontros.sql': {
+    titulo: 'Encontros combinados na negociação',
+    validar: (ctx) => ctx.tabelas.v2_meetings?.existe,
+    detalhe: 'Tabela public.v2_meetings',
+  },
 };
 
 /**
@@ -694,7 +704,7 @@ export function formatarRelatorioTerminal(resultado) {
   const linhas = [];
   linhas.push('═══════════════════════════════════════════════════════════════════════');
   linhas.push('  IpêBook — Diagnóstico de Saúde e Migrações do Supabase Remoto        ');
-  linhas.push('  Piripiri, PI · Operação da Versão 2 (Issue #177 / Spec 039)          ');
+  linhas.push('  Piripiri, PI · Operação da Versão 2 (Issue #177 / Spec 049)          ');
   linhas.push('═══════════════════════════════════════════════════════════════════════\n');
 
   if (!resultado.configOk) {
