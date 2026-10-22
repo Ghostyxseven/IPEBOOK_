@@ -1,4 +1,4 @@
-/** Situação do encontro combinado numa negociação aceita (Spec 044, Figma `06.04`–`06.14`). */
+/** Situação do encontro combinado numa negociação aceita (Spec 052, Figma `06.04`–`06.14`). */
 export type MeetingStatus = "proposed" | "confirmed" | "cancelled";
 
 export type Meeting = Readonly<{

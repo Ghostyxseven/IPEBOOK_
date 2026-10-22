@@ -1,4 +1,4 @@
-# Tarefas — Spec 044 (Combinar encontro)
+# Tarefas — Spec 052 (Combinar encontro)
 
 Responsável: **Micael Cardoso Reis** (`pessoa:micael`). Issue #188.
 

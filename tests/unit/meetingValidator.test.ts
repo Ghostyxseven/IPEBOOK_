@@ -9,7 +9,7 @@ function em(dias: number, hora: number, minuto = 0): string {
   return new Date(2026, 9, 22 + dias, hora, minuto).toISOString();
 }
 
-describe("validateMeetingProposal (Spec 044, RN-02 e RN-03)", () => {
+describe("validateMeetingProposal (Spec 052, RN-02 e RN-03)", () => {
   it("aceita ponto sugerido, de amanhã a sete dias, nas faixas de horário", () => {
     expect(validateMeetingProposal({ pointName: PRACA, scheduledAt: em(1, 9) }, AGORA)).toBeNull();
     expect(validateMeetingProposal({ pointName: PRACA, scheduledAt: em(7, 17) }, AGORA)).toBeNull();

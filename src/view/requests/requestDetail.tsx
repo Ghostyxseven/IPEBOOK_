@@ -18,7 +18,7 @@ export type RequestDetailProps = {
   sessionUserId: string;
   onBack?: () => void;
   onNavigateToBookDetail?: (bookId: string) => void;
-  /** Abre `06.04`/`06.13` para combinar ou reagendar (Spec 044). */
+  /** Abre `06.04`/`06.13` para combinar ou reagendar (Spec 052). */
   onScheduleMeeting?: () => void;
   focusKey?: number;
 };

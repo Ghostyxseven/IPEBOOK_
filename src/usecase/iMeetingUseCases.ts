@@ -1,7 +1,7 @@
 import type { Meeting, MeetingProposal } from "@/model/entities/meeting";
 
 export interface IMeetingUseCases {
-  /** Último encontro do pedido aceito, inclusive cancelado; `null` sem convite (Spec 044, RN-01). */
+  /** Último encontro do pedido aceito, inclusive cancelado; `null` sem convite (Spec 052, RN-01). */
   getMeeting(requestId: string, sessionUserId: string | null): Promise<Meeting | null>;
   /** Envia convite (`06.04`); recusado se já houver encontro ativo (RN-04). */
   propose(requestId: string, proposal: MeetingProposal, sessionUserId: string | null): Promise<Meeting>;

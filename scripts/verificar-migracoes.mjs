@@ -107,7 +107,7 @@ await as('authenticated', reader, `insert into public.v2_ratings (rater_id, rate
 await as('authenticated', owner, `insert into public.v2_ratings (rater_id, rated_user_id, request_id, score) values ('${owner}', '${reader}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 4)`);
 await denied('Avaliação duplicada no pedido', () => as('authenticated', reader, `insert into public.v2_ratings (rater_id, rated_user_id, request_id, score) values ('${reader}', '${owner}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 2)`));
 
-// Spec 044 / ADR 0036: encontro da negociação aceita bbbb (dono = owner, leitor = reader).
+// Spec 052 / ADR 0036: encontro da negociação aceita bbbb (dono = owner, leitor = reader).
 const meeting = 'cccccccc-0044-4044-8044-cccccccccccc';
 const praca = 'Praça da Bandeira (Centro)';
 await denied('Terceiro convida para encontro alheio', () => as('authenticated', other, `insert into public.v2_meetings (request_id, point_name, scheduled_at, proposed_by) values ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', '${praca}', now() + interval '1 day', '${other}')`));
@@ -139,7 +139,7 @@ const meetingReaderNotices = await as('authenticated', reader, `select title fro
 if (!meetingReaderNotices.rows.some((row) => row.title === 'Encontro cancelado')) throw new Error('Cancelamento não avisou a outra pessoa');
 await as('authenticated', reader, `insert into public.v2_meetings (request_id, point_name, scheduled_at, proposed_by) values ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', '${praca}', now() + interval '3 days', '${reader}')`);
 await denied('Cliente insere notificação direto', () => as('authenticated', owner, `insert into public.v2_notifications (user_id, title, message, type) values ('${reader}', 'Falso', 'Falso', 'meeting_update')`));
-process.stdout.write('Encontro da negociação (Spec 044): verificado com sucesso\n');
+process.stdout.write('Encontro da negociação (Spec 052): verificado com sucesso\n');
 // Os cenários de alerta abaixo contam todas as notificações de cada pessoa.
 await db.exec(`reset role; delete from public.v2_notifications where type = 'meeting_update'`);
 

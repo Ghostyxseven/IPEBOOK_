@@ -284,7 +284,7 @@ describe('Diagnóstico de Saúde e Migrações do Supabase Remoto (Spec 049 / AD
           v2_profiles: { existe: true, colunasValidas: ['name'] }, // sem photo_url, social_handle
           v2_ratings: { existe: true },
           v2_user_preferences: { existe: false }, // tabela ausente
-          v2_meetings: { existe: false }, // encontros da Spec 044 ainda não aplicados
+          v2_meetings: { existe: false }, // encontros da Spec 052 ainda não aplicados
         },
         storage: { ok: true, publico: true },
         rpc: {

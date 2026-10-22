@@ -3,7 +3,7 @@ import type { MeetingStatus } from "@/model/entities/meeting";
 export type MeetingChange = "proposed" | "rescheduled" | MeetingStatus;
 
 /**
- * Título e mensagem do aviso de encontro (Spec 044, RN-08). Os mesmos textos estão no gatilho
+ * Título e mensagem do aviso de encontro (Spec 052, RN-08). Os mesmos textos estão no gatilho
  * `v2_notify_meeting_change` da migração `202610220001_encontros.sql`.
  */
 export function meetingNotice(change: MeetingChange, pointName: string): { title: string; message: string } {

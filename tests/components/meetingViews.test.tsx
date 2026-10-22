@@ -49,7 +49,7 @@ async function renderCard(userId: string, onScheduleMeeting = vi.fn()) {
   return screen;
 }
 
-describe("cartão do encontro (Spec 044, 06.05/06.11/06.12)", () => {
+describe("cartão do encontro (Spec 052, 06.05/06.11/06.12)", () => {
   it("sem convite, oferece Combinar encontro", async () => {
     mockMeeting({ meeting: null });
     const onSchedule = vi.fn();
@@ -134,7 +134,7 @@ function mockSchedule(state: Partial<ScheduleMeetingState>, submit = vi.fn().moc
   return actions;
 }
 
-describe("combinar e reagendar encontro (Spec 044, 06.04/06.13)", () => {
+describe("combinar e reagendar encontro (Spec 052, 06.04/06.13)", () => {
   it("06.04: escolhas de opção única e Enviar convite", async () => {
     const actions = mockSchedule({ pointName: "Praça da Bandeira (Centro)", dayIndex: 1, hour: 15 });
     const onSent = vi.fn();

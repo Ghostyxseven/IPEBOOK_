@@ -12,7 +12,7 @@ const sabado15h = new Date(2026, 9, 24, 15).toISOString();
 const PRACA = "Praça da Bandeira (Centro)";
 const IFPI = "Campus IFPI Piripiri (Recepção ou Biblioteca)";
 
-describe("combinar encontro (Spec 044)", () => {
+describe("combinar encontro (Spec 052)", () => {
   let notifications: MemoryNotificationDataSource;
   let meetings: MemoryMeetingDataSource;
   let useCases: MeetingUseCases;

@@ -1,11 +1,11 @@
-# Validação — Spec 044 (Combinar encontro)
+# Validação — Spec 052 (Combinar encontro)
 
 Data: 2026-10-22. Branch: `feature/relaxed-thompson-60m08j`.
 
 ## Automatizada
 
 - `npm run validate`: tipos, arquitetura (267 arquivos, sem violações), SQL/PGlite e
-  **1006 testes em 143 arquivos (sobre o `develop` que já traz o tema escuro e o service worker)**, cobertura de linhas de 93,5%.
+  **1032 testes em 145 arquivos (sobre o `develop` com tema escuro, service worker e a renumeração das specs do #191)**, cobertura de linhas de 94,09%.
 - `npm run test:sql`: 11 cenários de acesso indevido negados para `v2_meetings` (terceiro convidando,
   convite em nome de outra pessoa, local fora da lista, data no passado e além de sete dias, segundo
   encontro ativo, quem convidou confirmando, confirmação alterando local, reagendamento em nome de

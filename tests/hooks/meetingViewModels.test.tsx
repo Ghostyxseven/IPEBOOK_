@@ -63,7 +63,7 @@ async function renderMeeting(userId: string, cases: IMeetingUseCases = useCases)
   return { get current() { return result; } };
 }
 
-describe("useScheduleMeetingViewModel (Spec 044, 06.04/06.13)", () => {
+describe("useScheduleMeetingViewModel (Spec 052, 06.04/06.13)", () => {
   it("oferece sete dias e as faixas de horário, e exige as três escolhas", async () => {
     const hook = await renderSchedule("dono");
     const [state, actions] = hook.current;
@@ -108,7 +108,7 @@ describe("useScheduleMeetingViewModel (Spec 044, 06.04/06.13)", () => {
   });
 });
 
-describe("useMeetingViewModel (Spec 044, 06.05/06.11)", () => {
+describe("useMeetingViewModel (Spec 052, 06.05/06.11)", () => {
   it("carrega, confirma e cancela o encontro", async () => {
     await useCases.propose("aceito", { pointName: PRACA, scheduledAt: new Date(2026, 9, 23, 10).toISOString() }, "dono");
     const hook = await renderMeeting("leitora");

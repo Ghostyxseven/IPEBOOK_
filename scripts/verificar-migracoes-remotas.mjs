@@ -197,7 +197,7 @@ export const TABELAS_CRITICAS = {
   },
   v2_meetings: {
     nome: 'v2_meetings',
-    descricao: 'Encontros combinados nas negociações aceitas (Spec 044)',
+    descricao: 'Encontros combinados nas negociações aceitas (Spec 052)',
     colunas: ['id', 'request_id', 'point_name', 'scheduled_at', 'proposed_by', 'status', 'created_at', 'updated_at'],
   },
 };

@@ -44,7 +44,7 @@ function sameDay(a: Date, b: Date): boolean {
   return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
 }
 
-/** Formulário de `06.04 · Combinar encontro` e `06.13 · Reagendar encontro` (Spec 044). */
+/** Formulário de `06.04 · Combinar encontro` e `06.13 · Reagendar encontro` (Spec 052). */
 export function useScheduleMeetingViewModel(
   requestId: string,
   sessionUserId: string | null,

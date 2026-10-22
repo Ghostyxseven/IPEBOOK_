@@ -9,7 +9,7 @@ function startOfDay(date: Date): number {
 
 /**
  * Recusa local fora dos pontos seguros, dia fora da janela de amanhã a sete dias e horário fora das
- * faixas de `06.04` (Spec 044, RN-02 e RN-03). Retorna a mensagem do primeiro problema ou `null`.
+ * faixas de `06.04` (Spec 052, RN-02 e RN-03). Retorna a mensagem do primeiro problema ou `null`.
  */
 export function validateMeetingProposal(proposal: MeetingProposal, now: Date = new Date()): string | null {
   if (!PIRIPIRI_MEETING_POINTS.some((point) => point.name === proposal.pointName)) {

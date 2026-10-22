@@ -12,7 +12,7 @@ export interface IMeetingDataSource {
   create(meeting: Omit<Meeting, "id" | "status">): Promise<Meeting>;
   /**
    * Atualiza só se a situação atual for `expectedStatus`, para não sobrescrever mudança concorrente.
-   * `actorId` é quem fez a mudança; a outra pessoa da negociação é avisada (Spec 044, RN-08).
+   * `actorId` é quem fez a mudança; a outra pessoa da negociação é avisada (Spec 052, RN-08).
    */
   update(id: string, patch: MeetingUpdate, expectedStatus: MeetingStatus, actorId: string): Promise<Meeting>;
 }

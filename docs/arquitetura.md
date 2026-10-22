@@ -134,7 +134,7 @@ ViewModels, Telas e Rotas:
 - `src/view/requests/receivedRequests.tsx` e `src/view/requests/sentRequests.tsx`: telas puras de pedidos recebidos e enviados, desacopladas do roteador por injeção de callbacks.
 - `src/app/pedidos-recebidos.tsx` e `src/app/meus-pedidos.tsx`: rotas finas do Expo Router que conectam a sessão do usuário às telas de pedidos.
 
-## Encontro da negociação (specs/044, trilha do Micael)
+## Encontro da negociação (specs/052, trilha do Micael)
 
 Decisão em [ADR 0036](adr/0036-encontro-como-entidade-propria.md). Contratos: `Meeting` (`requestId`, `pointName`, `scheduledAt`, `proposedBy`, `status: "proposed" | "confirmed" | "cancelled"`) em [meeting.ts](../src/model/entities/meeting.ts), regras de local, dia e horário em [meetingValidator.ts](../src/model/validators/meetingValidator.ts) e `IMeetingDataSource` em [iMeetingDataSource.ts](../src/model/datasources/iMeetingDataSource.ts).
 

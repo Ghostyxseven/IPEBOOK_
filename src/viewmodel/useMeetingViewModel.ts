@@ -30,7 +30,7 @@ const ACTION_ERROR = "Não foi possível atualizar o encontro. Tente novamente."
 /** Respostas ao encontro por minuto, como os demais formulários (ADR 0027). */
 const MEETING_ATTEMPTS = 3;
 
-/** Encontro de uma negociação aceita, com confirmar e cancelar (Spec 044, `06.05`, `06.11`). */
+/** Encontro de uma negociação aceita, com confirmar e cancelar (Spec 052, `06.05`, `06.11`). */
 export function useMeetingViewModel(
   requestId: string,
   sessionUserId: string | null,

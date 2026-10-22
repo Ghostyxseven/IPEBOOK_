@@ -22,7 +22,7 @@ export type MeetingCardProps = {
 };
 
 /**
- * Encontro da negociação aceita (Spec 044): convite pendente, encontro combinado (`06.05`),
+ * Encontro da negociação aceita (Spec 052): convite pendente, encontro combinado (`06.05`),
  * cancelamento com confirmação (`06.11`/`06.12`) e reagendamento (`06.13`).
  */
 export function MeetingCard({ requestId, sessionUserId, counterpartName, focusKey, onScheduleMeeting }: MeetingCardProps) {

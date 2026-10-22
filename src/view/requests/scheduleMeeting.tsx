@@ -24,7 +24,7 @@ export type ScheduleMeetingProps = {
 
 type OptionChipProps = { label: string; accessibilityLabel: string; selected: boolean; onPress: () => void };
 
-/** Opção de escolha única de `06.04`, anunciada como `radio` (Spec 044, RN-09). */
+/** Opção de escolha única de `06.04`, anunciada como `radio` (Spec 052, RN-09). */
 function OptionChip({ label, accessibilityLabel, selected, onPress }: OptionChipProps) {
   return (
     <Pressable

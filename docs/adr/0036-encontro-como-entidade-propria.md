@@ -4,7 +4,7 @@ Data: 2026-10-22. Status: aceito.
 
 ## Contexto
 
-A Spec 044 (Issue #188) permite que as duas pessoas de uma negociação aceita combinem local, dia e
+A Spec 052 (Issue #188) permite que as duas pessoas de uma negociação aceita combinem local, dia e
 horário do encontro, confirmem, reagendem e cancelem (Figma `06.04`, `06.05`, `06.11`–`06.14`). O
 pedido (`v2_book_requests`) só conhece `pending | accepted | rejected`, tem gatilho que impede
 mudanças depois do aceite e é alterado por uma RPC atômica (ADR 0030). Notificações no Supabase só
@@ -39,5 +39,5 @@ são criadas por gatilhos `security definer`; o cliente não insere em `v2_notif
 - Convites cancelados ficam como histórico da negociação e entram na exportação LGPD futuramente.
 - A lista de pontos fica duplicada entre TypeScript e SQL, coberta por teste que compara as duas.
 
-Vínculos: [Spec 044](../../specs/044-combinar-encontro/spec.md), [Issue #188](https://github.com/MICAELCARDOSOREIS/IPEBOOK_/issues/188),
+Vínculos: [Spec 052](../../specs/052-combinar-encontro/spec.md), [Issue #188](https://github.com/MICAELCARDOSOREIS/IPEBOOK_/issues/188),
 [ADR 0030](0030-aceite-atomico-e-politica-de-avaliacoes.md).

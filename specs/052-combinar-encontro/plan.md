@@ -1,4 +1,4 @@
-# Plano de implementação — Spec 044
+# Plano de implementação — Spec 052
 
 Decisão arquitetural registrada no [ADR 0036](../../docs/adr/0036-encontro-como-entidade-propria.md):
 o encontro é uma entidade própria (`v2_meetings`), e não colunas novas em `v2_book_requests`.

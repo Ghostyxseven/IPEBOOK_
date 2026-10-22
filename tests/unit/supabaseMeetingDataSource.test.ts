@@ -24,7 +24,7 @@ function fakeClient(result: { data: unknown; error: unknown }) {
   return { client, chain };
 }
 
-describe("SupabaseMeetingDataSource (Spec 044)", () => {
+describe("SupabaseMeetingDataSource (Spec 052)", () => {
   it("lê o último encontro do pedido e converte as colunas", async () => {
     const { client, chain } = fakeClient({ data: row, error: null });
     const meeting = await new SupabaseMeetingDataSource(client).findLatestByRequest("r1");

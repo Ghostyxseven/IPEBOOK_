@@ -14,7 +14,7 @@ vi.mock("@/viewmodel/useRequestDetailViewModel", () => ({
   useRequestDetailViewModel: vi.fn(),
 }));
 
-// O cartão do encontro (Spec 044) tem testes próprios; aqui ele começa sem convite.
+// O cartão do encontro (Spec 052) tem testes próprios; aqui ele começa sem convite.
 vi.mock("@/viewmodel/useMeetingViewModel", () => ({
   useMeetingViewModel: () => [
     { meeting: null, loading: false, error: null, busy: false, actionError: null },

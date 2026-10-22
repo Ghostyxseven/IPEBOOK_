@@ -12,7 +12,7 @@ function requireSession(sessionUserId: string | null): string {
   return sessionUserId;
 }
 
-/** Encontro da negociação aceita (Spec 044). */
+/** Encontro da negociação aceita (Spec 052). */
 export class MeetingUseCases implements IMeetingUseCases {
   constructor(
     private readonly meetings: IMeetingDataSource,

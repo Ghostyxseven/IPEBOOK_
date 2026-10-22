@@ -1,4 +1,4 @@
-# Spec 044 — Combinar encontro com local, dia e horário
+# Spec 052 — Combinar encontro com local, dia e horário
 
 **Responsável:** Micael Cardoso Reis (`pessoa:micael`)
 **Data:** 22 de outubro de 2026
