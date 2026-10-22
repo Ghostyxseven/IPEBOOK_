@@ -2,6 +2,7 @@ import { Stack, router, usePathname, type Href } from "expo-router";
 import { View } from "react-native";
 import { useIpebookFonts } from "@/view/useIpebookFonts";
 import { NavigationBar, type NavigationDestination } from "@/view/components/NavigationBar";
+import { PwaRegister } from "@/view/components/PwaRegister";
 import { InitialRouteGate } from "@/view/onboarding/initialRouteGate";
 import { ThemeProvider } from "@/view/theme/ThemeProvider";
 
