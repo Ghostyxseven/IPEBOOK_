@@ -263,3 +263,4 @@ No app ativo em desenvolvimento, 31 rotas cobrem as jornadas essenciais da beta.
 - `specs/051-home-secoes-destacadas/` (antes 041): Seções de recém-adicionados e doações (Issue #146).
 - `specs/039-alinhamento-fino-telas-micael/`: Alinhamento fino de oito telas do Micael ao canvas Android do Figma, lido nó a nó pelo MCP, com a lista das diferenças que dependem de recursos ainda inexistentes.
 - `specs/043-telas-micael-figma-ao-vivo/`: Telas do Micael conferidas no app compilado contra o Figma: defeitos de preço, nome do interessado e aba Propostas, e alinhamento de Estante, Anunciar, estados vazios, notificações e Ajuda.
+- `specs/044-combinar-encontro/`: Combinar encontro com local, dia e horário, confirmação, reagendamento e cancelamento (Issue #188, especificada; implementação pendente).
