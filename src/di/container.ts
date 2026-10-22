@@ -59,7 +59,9 @@ import type { IShareUseCases } from "@/usecase/iShareUseCases";
 import type { ISearchAlertUseCases } from "@/usecase/iSearchAlertUseCases";
 import type { ISearchHistoryUseCases } from "@/usecase/iSearchHistoryUseCases";
 import { AsyncStorageOnboardingDataSource } from "@/infra/datasources/asyncStorageOnboardingDataSource";
+import { AsyncStorageThemePreferenceDataSource } from "@/infra/datasources/asyncStorageThemePreferenceDataSource";
 import { MemoryOnboardingDataSource } from "@/infra/datasources/memoryOnboardingDataSource";
+import { MemoryThemePreferenceDataSource } from "@/infra/datasources/memoryThemePreferenceDataSource";
 import { NetInfoNetworkStatusDataSource } from "@/infra/datasources/netInfoNetworkStatusDataSource";
 import { SupabasePhotoStorageDataSource } from "@/infra/datasources/supabasePhotoStorageDataSource";
 import { MemoryPhotoStorageDataSource } from "@/infra/datasources/memoryPhotoStorageDataSource";
@@ -74,9 +76,11 @@ import { ClientRateLimiter } from "@/infra/services/clientRateLimiter";
 import type { IFileDownloadService } from "@/model/services/iFileDownloadService";
 import { FileDownloadService } from "@/infra/services/fileDownloadService";
 import type { IOnboardingUseCases } from "@/usecase/iOnboardingUseCases";
+import type { IThemePreferenceUseCases } from "@/usecase/iThemePreferenceUseCases";
 import type { IUserDataExportUseCases } from "@/usecase/iUserDataExportUseCases";
 import type { IUserPreferencesUseCases } from "@/usecase/iUserPreferencesUseCases";
 import { OnboardingUseCases } from "@/usecase/onboardingUseCases";
+import { ThemePreferenceUseCases } from "@/usecase/themePreferenceUseCases";
 import { UserDataExportUseCases } from "@/usecase/userDataExportUseCases";
 import { UserPreferencesUseCases } from "@/usecase/userPreferencesUseCases";
 
@@ -151,6 +155,9 @@ const bookDataSource = dataSources.books;
 
 export const onboardingUseCases: IOnboardingUseCases = new OnboardingUseCases(
   process.env.NODE_ENV === "test" ? new MemoryOnboardingDataSource() : new AsyncStorageOnboardingDataSource(),
+);
+export const themePreferenceUseCases: IThemePreferenceUseCases = new ThemePreferenceUseCases(
+  process.env.NODE_ENV === "test" ? new MemoryThemePreferenceDataSource() : new AsyncStorageThemePreferenceDataSource(),
 );
 export const networkStatusDataSource: INetworkStatusDataSource =
   process.env.NODE_ENV === "test" ? new MemoryNetworkStatusDataSource() : new NetInfoNetworkStatusDataSource();
