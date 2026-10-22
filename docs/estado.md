@@ -2,7 +2,16 @@
 
 Documento consolidado de continuidade técnica e produto do Ipebook (Piripiri, PI).
 
-Conferência atual: **2026-10-21** (branch `chore/higiene-specs-docs-testes`, derivada de `develop`).
+Conferência atual: **2026-10-22** (branch `feature/relaxed-thompson-60m08j`, derivada de `develop`).
+
+**Spec 044 validada localmente (Issue #188):** a negociação aceita ganhou o encontro combinado
+(Figma `06.04`, `06.05`, `06.11`–`06.14`): convite com local entre os pontos seguros, dia nos próximos
+sete dias e faixa de horário; confirmação só pela outra pessoa; reagendamento que volta a aguardar
+confirmação; cancelamento com diálogo; aviso `meeting_update` a cada mudança. Nova tabela
+`v2_meetings` com RLS e gatilhos (ADR 0036). `npm run validate` passou com 931 testes em 133
+arquivos; fluxo completo conferido com dois usuários no app compilado para a Web
+(`specs/044-combinar-encontro/validacao.md`). Pendente: aplicar `202610220001_encontros.sql` no
+Supabase remoto e conferir no aparelho Android.
 
 **Higiene da numeração de specs (2026-10-21):** oito pastas de `specs/` dividiam número com outra
 spec (031, 032, 033, 038, 039, 040 e 041). Foram renumeradas para 044–051, mantendo o número original
@@ -263,4 +272,4 @@ No app ativo em desenvolvimento, 31 rotas cobrem as jornadas essenciais da beta.
 - `specs/051-home-secoes-destacadas/` (antes 041): Seções de recém-adicionados e doações (Issue #146).
 - `specs/039-alinhamento-fino-telas-micael/`: Alinhamento fino de oito telas do Micael ao canvas Android do Figma, lido nó a nó pelo MCP, com a lista das diferenças que dependem de recursos ainda inexistentes.
 - `specs/043-telas-micael-figma-ao-vivo/`: Telas do Micael conferidas no app compilado contra o Figma: defeitos de preço, nome do interessado e aba Propostas, e alinhamento de Estante, Anunciar, estados vazios, notificações e Ajuda.
-- `specs/044-combinar-encontro/`: Combinar encontro com local, dia e horário, confirmação, reagendamento e cancelamento (Issue #188, especificada; implementação pendente).
+- `specs/044-combinar-encontro/`: Combinar encontro com local, dia e horário, confirmação, reagendamento e cancelamento (Issue #188, implementada e validada localmente; migração remota pendente).

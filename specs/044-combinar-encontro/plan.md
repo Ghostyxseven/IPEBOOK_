@@ -1,6 +1,6 @@
 # Plano de implementação — Spec 044
 
-Decisão arquitetural a registrar no ADR 0035 (tarefa T001) antes da implementação:
+Decisão arquitetural registrada no [ADR 0036](../../docs/adr/0036-encontro-como-entidade-propria.md):
 o encontro é uma entidade própria (`v2_meetings`), e não colunas novas em `v2_book_requests`.
 
 ## Modelo (`src/model`)

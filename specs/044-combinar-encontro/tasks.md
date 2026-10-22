@@ -2,16 +2,16 @@
 
 Responsável: **Micael Cardoso Reis** (`pessoa:micael`). Issue #188.
 
-- [ ] T001 ADR 0035 (encontro como entidade própria) e índice de ADRs.
-- [ ] T002 `entities/meeting.ts` e `validators/meetingValidator.ts` com testes (RN-02, RN-03).
-- [ ] T003 `iMeetingDataSource.ts` e `memoryMeetingDataSource.ts` com testes.
-- [ ] T004 `meetingUseCases.ts` com testes de RN-01, RN-04 a RN-08.
-- [ ] T005 Migração `202610220001_encontros.sql` com RLS e gatilho; casos no `npm run test:sql`.
-- [ ] T006 `supabaseMeetingDataSource.ts` com testes do adaptador.
-- [ ] T007 Composição em `src/di/container.ts`.
-- [ ] T008 `useMeetingViewModel` com testes.
-- [ ] T009 Tela `scheduleMeeting.tsx` (`06.04`/`06.13`), rota e `_redirects`, com testes.
-- [ ] T010 Cartão do encontro e diálogo de cancelamento em `requestDetail.tsx` (`06.05`, `06.11`,
+- [x] T001 ADR 0036 (encontro como entidade própria) e índice de ADRs.
+- [x] T002 `entities/meeting.ts` e `validators/meetingValidator.ts` com testes (RN-02, RN-03).
+- [x] T003 `iMeetingDataSource.ts` e `memoryMeetingDataSource.ts` com testes (aviso à outra pessoa em `meetingNotice.ts`).
+- [x] T004 `meetingUseCases.ts` com testes de RN-01, RN-04 a RN-08.
+- [x] T005 Migração `202610220001_encontros.sql` com RLS e gatilhos; casos no `npm run test:sql`; diagnóstico remoto (`scripts/verificar-migracoes-remotas.mjs`) passa a conferir `v2_meetings`.
+- [x] T006 `supabaseMeetingDataSource.ts` com testes do adaptador.
+- [x] T007 Composição em `src/di/container.ts`.
+- [x] T008 `useMeetingViewModel` com testes.
+- [x] T009 Tela `scheduleMeeting.tsx` (`06.04`/`06.13`), rota `src/app/negociacao/[id]/encontro.tsx` e `_redirects`, com testes.
+- [x] T010 Cartão do encontro e diálogo de cancelamento em `requestDetail.tsx` (`06.05`, `06.11`,
       `06.12`, `06.14`), com testes.
-- [ ] T011 `npm run validate`, conferência visual via CDP e `docs/estado.md` atualizado.
+- [x] T011 `npm run validate`, conferência visual via CDP e `docs/estado.md` atualizado.
 - [ ] T012 Aplicar a migração no Supabase remoto (exige autorização e credencial).
