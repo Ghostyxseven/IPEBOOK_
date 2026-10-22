@@ -15,8 +15,11 @@ Responsável: **Micael Cardoso Reis** (`pessoa:micael`). Issue #188.
       `06.12`, `06.14`), com testes.
 - [x] T011 `npm run validate`, conferência visual via CDP e `docs/estado.md` atualizado.
 - [ ] T012 Aplicar a migração no Supabase remoto (exige autorização e credencial).
-      Conferido em 2026-10-22 pelo MCP do Supabase: o projeto remoto parou em
-      `202610200006_perfil_publico_e_avaliacoes` e faltam `202610200007`, `202610200008`,
-      `202610210001` e `202610210002`, de outras specs. Aplicar só a `202610220001` fora de ordem
-      deixaria o histórico inconsistente; aplicar as cinco, em ordem, depois da integração em
-      `develop` e com autorização explícita.
+      Em 2026-10-22, pelo conector do Supabase, foram aplicadas as pendentes de outras specs:
+      `202610200007`, `202610200008` (função `accept_book_request` e políticas novas),
+      `202610210001` e `202610210002` (sem o `drop constraint if exists`, que não tinha alvo).
+      Faltam, por exigirem confirmação de comando destrutivo: remover as políticas antigas
+      `"usuário só cria avaliação em seu próprio nome"` e `"Dono responde pedido desta versão"`
+      (até lá, convivem com as novas e mantêm o comportamento anterior) e aplicar
+      `202610220001_encontros.sql` (recria `v2_notifications_type_check`). Depois, alinhar as
+      versões em `supabase_migrations.schema_migrations`, gravadas como `20261022…`.

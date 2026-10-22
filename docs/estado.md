@@ -10,8 +10,10 @@ sete dias e faixa de horário; confirmação só pela outra pessoa; reagendament
 confirmação; cancelamento com diálogo; aviso `meeting_update` a cada mudança. Nova tabela
 `v2_meetings` com RLS e gatilhos (ADR 0036). `npm run validate` passou com 931 testes em 133
 arquivos; fluxo completo conferido com dois usuários no app compilado para a Web
-(`specs/044-combinar-encontro/validacao.md`). Pendente: aplicar `202610220001_encontros.sql` no
-Supabase remoto e conferir no aparelho Android.
+(`specs/044-combinar-encontro/validacao.md`). Supabase remoto: aplicadas em 2026-10-22 as
+migrações `202610200007`, `202610200008`, `202610210001` e `202610210002`; ainda pendentes a remoção
+das duas políticas substituídas pela `202610200008` e a `202610220001_encontros.sql`, que exigem
+confirmar comandos destrutivos (detalhes na T012 da Spec 044). Conferência no aparelho Android pendente.
 
 **Higiene da numeração de specs (2026-10-21):** oito pastas de `specs/` dividiam número com outra
 spec (031, 032, 033, 038, 039, 040 e 041). Foram renumeradas para 044–051, mantendo o número original
