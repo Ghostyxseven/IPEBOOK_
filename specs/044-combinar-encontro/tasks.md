@@ -15,3 +15,8 @@ Responsável: **Micael Cardoso Reis** (`pessoa:micael`). Issue #188.
       `06.12`, `06.14`), com testes.
 - [x] T011 `npm run validate`, conferência visual via CDP e `docs/estado.md` atualizado.
 - [ ] T012 Aplicar a migração no Supabase remoto (exige autorização e credencial).
+      Conferido em 2026-10-22 pelo MCP do Supabase: o projeto remoto parou em
+      `202610200006_perfil_publico_e_avaliacoes` e faltam `202610200007`, `202610200008`,
+      `202610210001` e `202610210002`, de outras specs. Aplicar só a `202610220001` fora de ordem
+      deixaria o histórico inconsistente; aplicar as cinco, em ordem, depois da integração em
+      `develop` e com autorização explícita.
