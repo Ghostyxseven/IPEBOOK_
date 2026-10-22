@@ -18,11 +18,18 @@ no `CONTRIBUTING.md`.
 com 31 rotas Web. Foram acrescentados testes de hook para `useFavoritesViewModel`,
 `useFavoriteButtonViewModel` e `useSearchAlertsViewModel`, antes com a cobertura mais baixa.
 
-**Supabase remoto — pendente:** `npm run health:supabase:remote` encontrou **4 migrações não
-aplicadas** (`202610200007`, `202610200008`, `202610210001`, `202610210002`): faltam `photo_url` e
-`social_handle` em `v2_profiles`, `modalities` em `v2_search_alerts`, a tabela `v2_user_preferences` e
-a RPC `accept_book_request`. Enquanto isso, perfil, preferências, modalidades de alerta e aceite
-atômico não funcionam no backend remoto. Aplicar com `supabase db push` mediante autorização.
+**Supabase remoto — sincronizado (2026-10-21):** as 4 migrações mais recentes (`202610200007`,
+`202610200008`, `202610210001`, `202610210002`) já estavam aplicadas no banco com versões de
+histórico diferentes (`20261022…`), o que fazia o diagnóstico acusar pendência indevida. O SQL
+registrado no remoto foi comparado com os arquivos locais: idêntico em duas, e nas outras duas
+só diferia na ordem dos comandos. Para igualar o esquema ao da migração local, foram removidas duas
+políticas RLS antigas que ela manda descartar (`usuário só cria avaliação em seu próprio nome` e
+`Dono responde pedido desta versão`), pois a permissiva antiga anulava a regra nova (aceite só pela RPC
+`accept_book_request`; avaliação só entre as partes de um pedido aceito). O histórico foi reconciliado
+com `supabase migration repair` e `npm run health:supabase:remote` passou com 17 de 17 aplicadas.
+O diagnóstico esperava colunas inexistentes em `v2_user_preferences` (`email_notifications` etc.);
+corrigido para `phone` e `neighborhood`, como na migração. O token de acesso usado nesta operação deve
+ser revogado após o uso.
 
 **Spec 043 validada localmente:** as telas do Micael foram percorridas no app compilado para a Web,
 com dois usuários em memória, e comparadas lado a lado com os nós do Figma renderizados pelo MCP.
@@ -61,7 +68,7 @@ exibir endereço e horário recomendado, com botão "Como chegar" abrindo o app 
 com 781 testes em 114 arquivos. Validação manual do toque real em dispositivo (abertura efetiva do
 Google Maps/Apple Maps) ainda pendente — ver `specs/037-pontos-encontro-mapa/validacao.md`.
 
-**Spec 036 validada localmente:** lista de alertas com navegação para gerenciamento e edição, modalidades persistidas e aplicadas às notificações. `npm run validate` passou com 779 testes em 114 arquivos, além de tipos, arquitetura e SQL/PGlite. `npm run verify:release` passou, incluindo compilação Web com 28 rotas. No Android, `/alertas` sem sessão foi conferida via ADB; o aparelho se desconectou antes da conferência autenticada. O fluxo autenticado completo foi conferido visualmente na Web local via CDP, com sessão temporária em memória removida após o teste. A migração remota segue pendente porque `supabase migration list` retornou `AccessTokenRequiredError`.
+**Spec 036 validada localmente:** lista de alertas com navegação para gerenciamento e edição, modalidades persistidas e aplicadas às notificações. `npm run validate` passou com 779 testes em 114 arquivos, além de tipos, arquitetura e SQL/PGlite. `npm run verify:release` passou, incluindo compilação Web com 28 rotas. No Android, `/alertas` sem sessão foi conferida via ADB; o aparelho se desconectou antes da conferência autenticada. O fluxo autenticado completo foi conferido visualmente na Web local via CDP, com sessão temporária em memória removida após o teste. A migração remota, pendente na época por `AccessTokenRequiredError`, foi conferida depois (ver "Supabase remoto — sincronizado").
 
 ---
 
@@ -72,9 +79,9 @@ Todas as métricas abaixo foram aferidas diretamente por execução dos scripts 
 - **Testes automatizados**: **969 testes passando** em **134 arquivos de teste** (`npm run validate`), cobrindo entidades, validadores, casos de uso, adaptadores, viewmodels, componentes e integração.
 - **Cobertura de código**: Statements 92,68%, Branches 84,50%, Functions 90,21%, Lines 93,84%.
 - **Integridade arquitetural**: **100% em conformidade (244 arquivos verificados)** no MVVM sofisticado em sete camadas (`app`, `view`, `viewmodel`, `usecase`, `model`, `infra`, `di`), verificado pelo comando `npm run check:architecture` (0 violações). Apenas `src/di/container.ts` e testes têm permissão para instanciar ou importar adaptadores de `src/infra/`.
-- **Validação de banco e migrações SQL**: **17 migrações** descobertas e executadas em ordem no PGlite (`npm run test:sql`), com rejeição de versões duplicadas. Remotamente, 13 estão aplicadas e 4 pendentes (ver o aviso "Supabase remoto — pendente" acima).
+- **Validação de banco e migrações SQL**: **17 migrações** descobertas e executadas em ordem no PGlite (`npm run test:sql`), com rejeição de versões duplicadas. Remotamente, as 17 estão aplicadas (conferido em 2026-10-21; ver "Supabase remoto — sincronizado" acima).
 - **Semente Oficial da Beta (`npm run db:seed`)**: Script `scripts/popular-catalogo-piripiri.mjs` gerando 10 anúncios realistas distribuídos pelos bairros de Piripiri, PI com exportação SQL via `--sql`.
-- **Backend Supabase**: Configurado para desenvolvimento; as 4 migrações mais recentes ainda não foram aplicadas no banco remoto (verificado em 2026-10-21).
+- **Backend Supabase**: Configurado para desenvolvimento; as 17 migrações estão aplicadas no banco remoto e o diagnóstico `health:supabase:remote` passou (verificado em 2026-10-21).
 - **Rotas Web compiladas (`npm run build:web`)**: Exportação estática do Expo Router gerou com sucesso o pacote web em `dist/`, totalizando **31 rotas estáticas** (as rotas `/perfil/editar`, `/perfil/avaliacoes` e `/perfil/seguranca` foram acrescentadas pela Spec 048):
   - `/` (Catálogo e vitrine inicial com selo da beta em Piripiri, PI)
   - `/perfil` (Perfil do usuário autenticado)
