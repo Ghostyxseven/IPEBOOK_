@@ -296,5 +296,23 @@ await denied('Visitante altera perfil', () => as('anon', null, `update public.v2
 await denied('Visitante cria perfil', () => as('anon', null, `insert into public.v2_profiles (id, name) values ('33333333-3333-4333-8333-333333333333', 'Invasor')`));
 process.stdout.write('Leitura anônima de perfis (ADR 0038): verificado com sucesso\n');
 
+// Bloqueio de usuários e moderação interpessoal (Spec 056 / ADR 0039)
+await as('authenticated', owner, `insert into public.v2_blocked_users (blocker_id, blocked_id) values ('${owner}', '${other}')`);
+const ownerBlocked = await as('authenticated', owner, `select blocked_id from public.v2_blocked_users`);
+if (ownerBlocked.rows.length !== 1 || ownerBlocked.rows[0]?.blocked_id !== other) throw new Error('Bloqueio do dono não foi retornado');
+
+await denied('Usuário bloqueia a si mesmo', () => as('authenticated', owner, `insert into public.v2_blocked_users (blocker_id, blocked_id) values ('${owner}', '${owner}')`));
+const readerViewsOwnerBlocks = await as('authenticated', reader, `select * from public.v2_blocked_users where blocker_id = '${owner}'`);
+if (readerViewsOwnerBlocks.rows.length !== 0) throw new Error('Terceiro conseguiu visualizar lista de bloqueios alheia');
+
+const readerTriesUnblock = await as('authenticated', reader, `delete from public.v2_blocked_users where blocker_id = '${owner}' and blocked_id = '${other}'`);
+if (readerTriesUnblock.affectedRows !== 0) throw new Error('Terceiro conseguiu remover bloqueio alheio');
+
+await denied('Visitante insere bloqueio', () => as('anon', null, `insert into public.v2_blocked_users (blocker_id, blocked_id) values ('${owner}', '${other}')`));
+await as('authenticated', owner, `delete from public.v2_blocked_users where blocker_id = '${owner}' and blocked_id = '${other}'`);
+const afterUnblock = await as('authenticated', owner, `select * from public.v2_blocked_users where blocker_id = '${owner}'`);
+if (afterUnblock.rows.length !== 0) throw new Error('Desbloqueio não removeu o registro');
+process.stdout.write('Bloqueio de usuários (Spec 056 / ADR 0039): verificado com sucesso\n');
+
 process.stdout.write('Migrações e cenários SQL locais verificados.\n');
 await db.close();

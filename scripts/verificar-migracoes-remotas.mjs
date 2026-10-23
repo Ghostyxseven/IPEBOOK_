@@ -200,6 +200,11 @@ export const TABELAS_CRITICAS = {
     descricao: 'Encontros combinados nas negociações aceitas (Spec 052)',
     colunas: ['id', 'request_id', 'point_name', 'scheduled_at', 'proposed_by', 'status', 'created_at', 'updated_at'],
   },
+  v2_blocked_users: {
+    nome: 'v2_blocked_users',
+    descricao: 'Relação privada de bloqueio entre pessoas da comunidade (Spec 056 / ADR 0039)',
+    colunas: ['blocker_id', 'blocked_id', 'created_at'],
+  },
 };
 
 /**
@@ -539,6 +544,11 @@ export const MAPEAMENTO_MIGRACOES = {
     titulo: 'Leitura pública anônima de perfis comunitários e avaliações',
     validar: (ctx) => ctx.tabelas.v2_profiles?.existe && ctx.tabelas.v2_ratings?.existe,
     detalhe: 'Políticas RLS em v2_profiles e v2_ratings para role anon (ADR 0038)',
+  },
+  '202610230002_bloqueio_usuarios.sql': {
+    titulo: 'Bloqueio de usuários e moderação interpessoal',
+    validar: (ctx) => ctx.tabelas.v2_blocked_users?.existe,
+    detalhe: 'Tabela public.v2_blocked_users (ADR 0039)',
   },
 };
 
