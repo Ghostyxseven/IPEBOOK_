@@ -107,7 +107,7 @@ await as('authenticated', reader, `insert into public.v2_ratings (rater_id, rate
 await as('authenticated', owner, `insert into public.v2_ratings (rater_id, rated_user_id, request_id, score) values ('${owner}', '${reader}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 4)`);
 await denied('Avaliação duplicada no pedido', () => as('authenticated', reader, `insert into public.v2_ratings (rater_id, rated_user_id, request_id, score) values ('${reader}', '${owner}', 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', 2)`));
 
-// Spec 052 / ADR 0036: encontro da negociação aceita bbbb (dono = owner, leitor = reader).
+// Spec 052 / ADR 0037: encontro da negociação aceita bbbb (dono = owner, leitor = reader).
 const meeting = 'cccccccc-0044-4044-8044-cccccccccccc';
 const praca = 'Praça da Bandeira (Centro)';
 await denied('Terceiro convida para encontro alheio', () => as('authenticated', other, `insert into public.v2_meetings (request_id, point_name, scheduled_at, proposed_by) values ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb', '${praca}', now() + interval '1 day', '${other}')`));
