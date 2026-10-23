@@ -286,5 +286,15 @@ const trgmSearch = await as('anon', null, `select id, title, author from public.
 if (trgmSearch.rows.length === 0) throw new Error('Busca trigram ILIKE não encontrou o livro');
 process.stdout.write('Busca textual com pg_trgm e índice GIN: verificado com sucesso\n');
 
+// Leitura pública anônima de perfis comunitários e avaliações (ADR 0038)
+await db.exec('reset role');
+await db.exec(`insert into public.v2_profiles (id, name) values ('${owner}', 'Dono Comunitário') on conflict (id) do update set name = 'Dono Comunitário'`);
+const anonProfile = await as('anon', null, `select name from public.v2_profiles where id = '${owner}'`);
+if (anonProfile.rows[0]?.name !== 'Dono Comunitário') throw new Error('Visitante anônimo não conseguiu ler o perfil público');
+
+await denied('Visitante altera perfil', () => as('anon', null, `update public.v2_profiles set name = 'Hacker' where id = '${owner}'`));
+await denied('Visitante cria perfil', () => as('anon', null, `insert into public.v2_profiles (id, name) values ('33333333-3333-4333-8333-333333333333', 'Invasor')`));
+process.stdout.write('Leitura anônima de perfis (ADR 0038): verificado com sucesso\n');
+
 process.stdout.write('Migrações e cenários SQL locais verificados.\n');
 await db.close();

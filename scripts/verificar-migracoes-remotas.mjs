@@ -535,6 +535,11 @@ export const MAPEAMENTO_MIGRACOES = {
     validar: (ctx) => ctx.tabelas.v2_meetings?.existe,
     detalhe: 'Tabela public.v2_meetings',
   },
+  '202610230001_leitura_anonima_perfis_e_avaliacoes.sql': {
+    titulo: 'Leitura pública anônima de perfis comunitários e avaliações',
+    validar: (ctx) => ctx.tabelas.v2_profiles?.existe && ctx.tabelas.v2_ratings?.existe,
+    detalhe: 'Políticas RLS em v2_profiles e v2_ratings para role anon (ADR 0038)',
+  },
 };
 
 /**

@@ -223,7 +223,9 @@ export const userPreferencesUseCases: IUserPreferencesUseCases = new UserPrefere
   dataSources.userPreferences,
 );
 
-export const logger: ILogger = new SafeLogger();
+export const logger: ILogger = new SafeLogger(
+  process.env.NODE_ENV === "test" ? { sink: () => {} } : {}
+);
 
 export const rateLimiter: IRateLimiter = new ClientRateLimiter();
 
